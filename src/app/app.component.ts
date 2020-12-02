@@ -1,5 +1,6 @@
-import { AsyncState, Status, toData } from '../async/async.model';
 import { Component } from '@angular/core';
+
+import { AsyncState, Status } from '../async/async.model';
 import { Data } from './app.model';
 
 @Component({
@@ -11,8 +12,6 @@ export class AppComponent {
   public state: AsyncState<Data> = {
     status: Status.PENDING
   };
-
-  public toData = toData;
 
   public setData(): void {
     this.state = {

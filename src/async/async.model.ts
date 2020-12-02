@@ -24,6 +24,3 @@ export enum Status {
   PENDING = 'PENDING',
   IDLE = 'IDLE',
 }
-
-
-export const toData = <T>(value: T): value is T => value !== undefined;
