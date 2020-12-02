@@ -1,0 +1,19 @@
+<ng-container [ngSwitch]="asyncState.status">
+  <ng-container *ngSwitchCase="Status.IDLE">
+    IDLE
+  </ng-container>
+  <ng-container *ngSwitchCase="Status.PENDING">
+    Loading...
+  </ng-container>
+  <ng-container *ngSwitchCase="Status.SUCCESS">
+    <ng-template [ngTemplateOutlet]="successTmpl || defaultSuccessTmpl" [ngTemplateOutletContext]="{ data: asyncState.data }">
+    </ng-template>
+  </ng-container>
+  <ng-container *ngSwitchCase="Status.ERROR">
+    <ng-template [ngTemplateOutlet]="errorTmpl || defaultErrorTmpl" [ngTemplateOutletContext]="{ error: asyncState.error }">
+    </ng-template>
+  </ng-container>
+</ng-container>
+
+<ng-template #defaultSuccessTmpl let-data="data">{{ data | json }}</ng-template>
+<ng-template #defaultErrorTmpl let-error="error">{{ error | json }}</ng-template>
