@@ -8,8 +8,7 @@ import { selectCustomerState } from '../../+state/selectors/customer.selectors';
   templateUrl: './customer.component.html',
 })
 export class CustomerComponent {
-
-  public vm$ = this.store.pipe(select(selectCustomerState));
+  public customerState$ = this.store.pipe(select(selectCustomerState));
 
   public constructor(private readonly store: Store<State>) {}
 }

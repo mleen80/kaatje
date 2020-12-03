@@ -1,6 +1,6 @@
 <h1>Customer</h1>
 
-<app-async [asyncState$]="vm$">
+<app-async [asyncState$]="customerState$">
   <ng-template success let-data="data">
     <strong>id</strong> {{ data?.accountId }}<br/>
     <strong>Fullname</strong> {{ data?.person?.fullName }}<br/>

@@ -1,4 +1,11 @@
-import { Actions, createFormGroupState, FormGroupState, formStateReducer, updateGroup, validate } from 'ngrx-forms';
+import {
+  Actions,
+  createFormGroupState,
+  FormGroupState,
+  formStateReducer,
+  updateGroup,
+  validate,
+} from 'ngrx-forms';
 import { maxLength, minLength, pattern, required } from 'ngrx-forms/validation';
 
 import { enforceNumeric } from '../../../shared/utils/form-reducer.utils';

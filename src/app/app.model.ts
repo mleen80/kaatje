@@ -1,10 +1,9 @@
-export interface Data {
-  id: string;
-  description: string;
-  address: Address;
-}
+import { ExtraOptions } from '@angular/router';
 
-export interface Address {
-  postcode: string;
-  houseNumber: string;
-}
+export const routeConfiguration: ExtraOptions = {
+  initialNavigation: 'enabled',
+  paramsInheritanceStrategy: 'always',
+  relativeLinkResolution: 'corrected',
+  scrollPositionRestoration: 'enabled',
+  onSameUrlNavigation: 'reload',
+};

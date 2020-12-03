@@ -5,14 +5,8 @@ import { AppRoutingModule } from './app.routing.module';
 import { AsyncModule } from './async/async.module';
 import { CoreModule } from './core/core.module';
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    CoreModule,
-    AppRoutingModule
-  ],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [CoreModule, AppRoutingModule],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}

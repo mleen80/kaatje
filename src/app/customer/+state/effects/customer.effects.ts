@@ -17,13 +17,10 @@ export class CustomerEffects {
     this.actions$.pipe(
       ofFormSubmitAction(FORM_ID),
       withLatestFrom(this.formState$),
-      tap(([_, form]) =>
-        this.router.navigate([`/${form.value.accountId}`])
-      ),
-      switchMap(() => [
-        new MarkAsUnsubmittedAction(FORM_ID)
-      ])
-    ));
+      tap(([_, form]) => this.router.navigate([`/${form.value.accountId}`])),
+      switchMap(() => [new MarkAsUnsubmittedAction(FORM_ID)])
+    )
+  );
 
   constructor(
     private readonly actions$: Actions,
