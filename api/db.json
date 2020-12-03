@@ -1,0 +1,16 @@
+{
+    "customers": [
+        {
+            "id": "0123456789",
+            "accountId": "0123456789",
+            "person": {
+                "lastName": "Boeijenga",
+                "fullName": "J. Boeijenga",
+                "gender": "male",
+                "initials": "J",
+                "firstName": "Jasper",
+                "dateOfBirth": "1988-01-09"
+            }
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+<h1>Customer</h1>
+
+<app-async [asyncState$]="vm$">
+  <ng-template success let-data="data">
+    <strong>id</strong> {{ data?.accountId }}<br/>
+    <strong>Fullname</strong> {{ data?.person?.fullName }}<br/>
+  </ng-template>
+  <ng-template error let-error="error">
+    <p *ngIf="error.status === 404">Customer not found</p>
+    <p *ngIf="error.status > 499">Internal server error</p>
+  </ng-template>
+</app-async>
+<br />
+<small><a [routerLink]="['../']">back</a> </small>

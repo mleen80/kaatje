@@ -1,5 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, ContentChild, Directive, Input, TemplateRef } from '@angular/core';
-import { AsyncState, Status } from './async.model';
+import { AsyncState, Status } from '@essent/common';
+import { Observable } from 'rxjs';
 
 // tslint:disable-next-line: directive-selector
 @Directive({selector: 'ng-template[success]'})
@@ -10,7 +12,7 @@ export class AsyncSuccessDirective<T> {
 // tslint:disable-next-line: directive-selector
 @Directive({selector: 'ng-template[error]'})
 export class AsyncErrorDirective {
-  constructor(public templateRef: TemplateRef<{error: string}>) {}
+  constructor(public templateRef: TemplateRef<{error: HttpErrorResponse}>) {}
 }
 
 @Component({
@@ -19,7 +21,7 @@ export class AsyncErrorDirective {
 })
 export class AsyncComponent<T> {
   @Input()
-  public asyncState!: AsyncState<T>;
+  public asyncState$!: Observable<AsyncState<T>>;
   public Status = Status;
 
   @ContentChild(AsyncSuccessDirective, {read: TemplateRef})

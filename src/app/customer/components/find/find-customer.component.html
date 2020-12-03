@@ -1,0 +1,6 @@
+<h1>Find customer</h1>
+<form *ngIf="formState$ | async as form" [ngrxFormState]="form">
+    <label>Customer nr.</label>&nbsp;
+    <input type="text" [ngrxFormControlState]="form.controls.accountId" />
+    <button type="submit" [disabled]="!form.isValid">Get customer</button>
+</form>
