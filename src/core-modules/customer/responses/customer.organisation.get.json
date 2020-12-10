@@ -1,0 +1,25 @@
+{
+    "account_id": "0001022322",
+    "customer_segment": "small_medium_enterprise",
+    "organisation": {
+        "organisation_name": "Essent",
+        "chamber_of_commerce_number": "61927201",
+        "legal_entity": "organisation"
+    },
+    "correspondence": {
+        "email": "abc@gmail.com",
+        "phone": {
+            "Phone_number": "+31684612233",
+            "Primary": true
+        },
+        "address": {
+            "house_number": "10",
+            "postcode": "1577FH",
+            "house_number_extension": "1B",
+            "street": "Koningsweg",
+            "city": "Den-Bosch",
+            "care_of_full_name": "A. Jasleen",
+            "department": "A. Jasleen"
+        }
+    }
+}

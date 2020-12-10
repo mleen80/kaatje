@@ -1,0 +1,20 @@
+{
+    "account_id": "0001022322",
+    "preferred_communication_channel": "email",
+    "correspondence": {
+        "email": "abc@gmail.com",
+        "phone": {
+            "phone_number": "+31684612233",
+            "primary": true
+        },
+        "address": {
+            "house_number": "10",
+            "postcode": "1577FH",
+            "house_number_extension": "1B",
+            "street": "Koningsweg",
+            "city": "Den-Bosch",
+            "care_of_full_name": "A. Jasleen",
+            "department": "A. Jasleen"
+        }
+    }
+}

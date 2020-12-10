@@ -1,0 +1,52 @@
+[
+    {
+        "id": "150508398",
+        "segment": "rental",
+        "title": null,
+        "initials": null,
+        "prefix": null,
+        "last_name": null,
+        "full_name": null,
+        "gender": null,
+        "organisation_name": "HB SYSTEMS",
+        "date_of_birth": null,
+        "address": {
+            "street": null,
+            "house_number": null,
+            "house_number_extension": null,
+            "pobox": "151",
+            "postcode": "5340 AD",
+            "city": "OSS",
+            "country": "NL",
+            "care_of_fullname": null,
+            "telephone_number": null,
+            "email_address": null
+        },
+        "kvk_number": "16024144"
+    },
+    {
+        "id": "170264472",
+        "segment": "huishouden",
+        "title": "mevrouw",
+        "initials": "L.S.A.",
+        "prefix": null,
+        "last_name": "EVEN",
+        "full_name": "mevrouw L.S.A. EVEN",
+        "gender": "vrouw",
+        "organisation_name": null,
+        "date_of_birth": "1930-12-25",
+        "address": {
+            "street": "Busschietersstraat",
+            "house_number": "40",
+            "house_number_extension": null,
+            "pobox": null,
+            "postcode": "5212 TG",
+            "city": "'S-HERTOGENBOSCH",
+            "country": "NL",
+            "care_of_fullname": null,
+            "telephone_number": null,
+            "email_address": null
+        },
+        "kvk_number": null
+    }
+]

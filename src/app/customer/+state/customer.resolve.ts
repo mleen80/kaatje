@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
-import { getCustomer } from '@essent/customer';
+import { getCustomer } from 'core-modules/customer';
 import { Store } from '@ngrx/store';
 
 @Injectable()

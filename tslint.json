@@ -19,8 +19,16 @@
     "eofline": true,
     "import-blacklist": [
       true,
-      "rxjs/Rx"
+      "rxjs/Rx",
+      "src/core-modules/*"
     ],
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      [
+        "core-modules"
+      ]
+  ],
     "import-spacing": true,
     "indent": {
       "options": [
