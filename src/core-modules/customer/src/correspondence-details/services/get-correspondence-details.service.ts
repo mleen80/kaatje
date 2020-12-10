@@ -1,5 +1,5 @@
 import { Injectable, Optional, Inject } from '@angular/core';
-import { BaseService, toHttpParams, snakeCase, toCamelcase } from '@essent/common';
+import { BaseService, toHttpParams, snakeCase, toCamelcase } from 'core-modules/common';
 import { GetCorrespondenceDetailsPayload, CorrespondenceDetails } from '../interfaces';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';

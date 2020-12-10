@@ -1,4 +1,4 @@
-import { EffectConfiguration, baseEffectFactory, HandleRequestService } from '@essent/common';
+import { EffectConfiguration, baseEffectFactory, HandleRequestService } from 'core-modules/common';
 import { Customer, getCustomer, getCustomerSuccess, getCustomerError } from '..';
 import { GetCustomerService } from '../services/get-customer.service';
 import { Actions } from '@ngrx/effects';

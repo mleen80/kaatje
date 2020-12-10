@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { createBaseAction, BaseActionType } from '@essent/common';
+import { createBaseAction, BaseActionType } from 'core-modules/common';
 import { union } from '@ngrx/store';
 
 import { CorrespondenceDetails, PutCorrespondenceDetailsPayload } from '../interfaces';

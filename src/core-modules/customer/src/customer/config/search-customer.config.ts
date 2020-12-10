@@ -1,4 +1,4 @@
-import { EffectConfiguration, baseEffectFactory, HandleRequestService } from '@essent/common';
+import { EffectConfiguration, baseEffectFactory, HandleRequestService } from 'core-modules/common';
 import { SearchCustomerPayload, searchCustomer, searchCustomerSuccess, searchCustomerError } from '..';
 import { SearchCustomerService } from '../services/search-customer.service';
 import { Actions } from '@ngrx/effects';

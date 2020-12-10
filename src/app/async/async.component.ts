@@ -6,7 +6,7 @@ import {
   Input,
   TemplateRef,
 } from '@angular/core';
-import { AsyncState, Status } from '@essent/common';
+import { AsyncState, Status } from 'core-modules/common';
 import { Observable } from 'rxjs';
 
 // tslint:disable-next-line: directive-selector

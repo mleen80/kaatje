@@ -1,4 +1,4 @@
-import { EffectConfiguration, baseEffectFactory, HandleRequestService } from '@essent/common';
+import { EffectConfiguration, baseEffectFactory, HandleRequestService } from 'core-modules/common';
 import {
     PutCorrespondenceDetailsPayload,
     CorrespondenceDetails,

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { BaseActionType, createBaseAction } from '@essent/common';
+import { BaseActionType, createBaseAction } from 'core-modules/common';
 import { union } from '@ngrx/store';
 
 import { SearchCustomerPayload } from '../interfaces/search-customer-payload.interface';

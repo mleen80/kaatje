@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, Optional } from '@angular/core';
-import { BaseService, toCamelcase } from '@essent/common';
+import { BaseService, toCamelcase } from 'core-modules/common';
 import { Observable } from 'rxjs';
 
 import { API } from '../../shared/customer.model';

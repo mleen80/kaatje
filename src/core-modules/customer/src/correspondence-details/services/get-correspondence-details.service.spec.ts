@@ -1,6 +1,6 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { camelCase } from '@essent/common';
+import { camelCase } from 'core-modules/common';
 import { default as serverResponse } from '../../../responses/correspondence-details.get.json';
 
 import { API } from '../../shared/customer.model';

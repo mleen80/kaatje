@@ -1,11 +1,11 @@
-import { AsyncState, createAsyncStateReducer } from '@essent/common';
+import { AsyncState, createAsyncStateReducer } from 'core-modules/common';
 import {
   Customer,
   getCustomer,
   getCustomerClear,
   getCustomerError,
   getCustomerSuccess,
-} from '@essent/customer';
+} from 'core-modules/customer';
 
 export type State = AsyncState<Customer>;
 

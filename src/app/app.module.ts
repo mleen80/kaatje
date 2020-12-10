@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { AsyncModule } from './async/async.module';
 import { CoreModule } from './core/core.module';
 @NgModule({
   declarations: [AppComponent],
