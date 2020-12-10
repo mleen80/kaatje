@@ -4,18 +4,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { API } from './shared/customer.model';
 import { searchCustomerEffects, searchCustomerProviders } from './customer/config/search-customer.config';
 import { getCustomerEffects, getCustomerProviders } from './customer/config/get-customer-config';
-import {
-    getCorrespondenceDetailsEffects,
-    getCorrespondenceDetailsProviders
-} from './correspondence-details/config/get-correspondence-details.config';
-import {
-    getCustomerStatusProviders,
-    getCustomerStatusEffects
-} from './customer-status/config/get-customer-status-config';
-import {
-    putCorrespondenceDetailsEffects,
-    putCorrespondenceDetailsProviders
-} from './correspondence-details/config/put-correspondence-details.config';
 
 /**
  * Module containing all providers.
@@ -43,18 +31,12 @@ import {
  */
 @NgModule({
     imports: [
-        EffectsModule.forFeature(getCorrespondenceDetailsEffects),
         EffectsModule.forFeature(searchCustomerEffects),
         EffectsModule.forFeature(getCustomerEffects),
-        EffectsModule.forFeature(getCustomerStatusEffects),
-        EffectsModule.forFeature(putCorrespondenceDetailsEffects)
     ],
     providers: [
-        getCorrespondenceDetailsProviders,
         searchCustomerProviders,
-        getCustomerProviders,
-        getCustomerStatusProviders,
-        putCorrespondenceDetailsProviders
+        getCustomerProviders
     ]
 })
 export class CustomerCoreModule {

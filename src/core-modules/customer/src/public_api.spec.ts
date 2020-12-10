@@ -5,10 +5,6 @@ import * as API from './public_api';
  */
 describe('Customer public API', () => {
     const exported = [
-        API.getCorrespondenceDetails,
-        API.getCorrespondenceDetailsSuccess,
-        API.getCorrespondenceDetailsError,
-        API.getCorrespondenceDetailsClear,
         API.getCustomer,
         API.getCustomerClear,
         API.getCustomerError,
@@ -18,20 +14,11 @@ describe('Customer public API', () => {
         API.searchCustomerError,
         API.searchCustomerSuccess,
         API.SearchCustomerTypes,
-        API.getCustomerStatus,
-        API.getCustomerStatusClear,
-        API.getCustomerStatusError,
-        API.getCustomerStatusSuccess,
         API.SegmentType,
         API.CustomerCoreModule,
         API.LegalEntities,
         API.Gender,
         API.AddressTypes,
-        API.putCorrespondenceDetails,
-        API.putCorrespondenceDetailsSuccess,
-        API.putCorrespondenceDetailsError,
-        API.putCorrespondenceDetailsClear,
-        API.CommunicationChannels,
         API.API
     ];
 
@@ -49,19 +36,12 @@ describe('Customer public API', () => {
             | API.PoboxAddress
             | API.StreetAddress
             | API.Correspondence
-            | API.CorrespondenceDetails
             | API.Phone
             | API.LegalEntities
             | API.Gender
             | API.Customer
             | API.Person
-            | API.Organisation
-            | API.CustomerStatus
-            | API.GetCorrespondenceDetailsPayload
-            | API.PutCorrespondenceDetailsPayload
-            | API.PutCorrespondenceDetailsUnion
-            | API.PutCorrespondence
-            | API.GetCorrespondenceDetailsUnion = {} as any;
+            | API.Organisation = {} as any;
         expect(a).toBeDefined();
     });
 });

@@ -7,19 +7,7 @@ import { Subject } from 'rxjs';
 import { API } from './shared/customer.model';
 import { CustomerCoreModule } from './public_api';
 import { GetCustomerConfig, getCustomerEffectConfig } from './customer/config/get-customer-config';
-import {
-    GetCorrespondenceDetailsConfig,
-    getCorrespondenceDetailsEffectConfig
-} from './correspondence-details/config/get-correspondence-details.config';
 import { SearchCustomerConfig, searchCustomerEffectConfig } from './customer/config/search-customer.config';
-import {
-    GetCustomerStatusConfig,
-    getCustomerStatusEffectConfig
-} from './customer-status/config/get-customer-status-config';
-import {
-    PutCorrespondenceDetailsConfig,
-    putCorrespondenceDetailsEffectConfig
-} from './correspondence-details/config/put-correspondence-details.config';
 
 describe('Customer module', () => {
     beforeEach(() => {
@@ -61,24 +49,9 @@ describe('Customer module', () => {
         ]);
     });
 
-    it('should provide effect configurations for correspondence', () => {
-        const getCorrespondenceDetailsConfig = TestBed.inject(GetCorrespondenceDetailsConfig);
-        expect(getCorrespondenceDetailsConfig).toBe(getCorrespondenceDetailsEffectConfig);
-    });
-
-    it('should provide effect configurations for PUT correspondence', () => {
-        const putCorrespondenceDetailsConfig = TestBed.inject(PutCorrespondenceDetailsConfig);
-        expect(putCorrespondenceDetailsConfig).toBe(putCorrespondenceDetailsEffectConfig);
-    });
-
     it('should provide effect configurations for customers', () => {
         const getCustomerConfig = TestBed.inject(GetCustomerConfig);
         expect(getCustomerConfig).toBe(getCustomerEffectConfig);
-    });
-
-    it('should provide effect configurations for customer status', () => {
-        const getCustomerStatusConfig = TestBed.inject(GetCustomerStatusConfig);
-        expect(getCustomerStatusConfig).toBe(getCustomerStatusEffectConfig);
     });
 
     it('should provide effect configurations for searching for customers', () => {
