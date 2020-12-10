@@ -2,8 +2,9 @@
 
 <app-async [asyncState$]="customerState$">
   <ng-template success let-data="data">
-    <strong>id</strong> {{ data?.accountId }}<br/>
-    <strong>Fullname</strong> {{ data?.person?.fullName }}<br/>
+    <strong>id</strong>  {{ data?.accountId }}<br/>
+    <strong>Fullname</strong>  {{ data?.person?.fullName }}<br/>
+    <strong>Date of birth</strong>  {{ data?.person?.dateOfBirth | date:'fullDate' }}<br/>
   </ng-template>
   <ng-template error let-error="error">
     <p *ngIf="error.status === 404">Customer not found</p>
