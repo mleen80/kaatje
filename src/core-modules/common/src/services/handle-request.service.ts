@@ -21,7 +21,7 @@ export class HandleRequestService {
         private readonly defaultRequestStrategy: RequestStrategy
     ) {}
 
-    public handle<T, U extends BaseActionType<T>>(action$: Observable<U>, requestHandler: RequestHandler<U>) {
+    public handle<T, U extends BaseActionType<T>>(action$: Observable<U>, requestHandler: RequestHandler<U>): Observable<Action> {
         action$ = action$.pipe(
             map(action =>
                 action.requestStrategy

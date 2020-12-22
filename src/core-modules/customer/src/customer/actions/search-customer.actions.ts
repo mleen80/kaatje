@@ -7,7 +7,7 @@ import { Customer } from '../interfaces';
 
 /** Added this because typescript resolved the 'createBaseAction' to a local path.
  *  When also importing 'BaseActionType' the path is resolved the right way.
- **/
+ */
 type _localType = BaseActionType<any>;
 
 // tslint:disable: max-classes-per-file

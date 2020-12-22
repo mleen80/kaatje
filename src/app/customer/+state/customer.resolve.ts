@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 
 @Injectable()
 export class CustomerResolve implements Resolve<string> {
-  public constructor(private readonly store: Store<{}>) {}
+  public constructor(private readonly store: Store) {}
 
   public resolve(route: ActivatedRouteSnapshot): string {
     const id: string | null = route.paramMap.get('id');

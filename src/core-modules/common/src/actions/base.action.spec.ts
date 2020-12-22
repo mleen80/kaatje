@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { Actions, Effect, EffectsModule, ofType } from '@ngrx/effects';
-import { Action, select, Store, StoreModule } from '@ngrx/store';
+import { Action, Store, StoreModule } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequestStrategy } from '../enums/request-strategy.enum';
@@ -98,10 +98,10 @@ describe('Base action', () => {
         store$.dispatch(action2);
 
         let actionSuccess1;
-        store$.pipe(select(s => s.example)).subscribe(s => (actionSuccess1 = s.a));
+        store$.select(s => s.example).subscribe(s => (actionSuccess1 = s.a));
 
         let actionSuccess2;
-        store$.pipe(select(s => s.example)).subscribe(s => (actionSuccess2 = s.b));
+        store$.select(s => s.example).subscribe(s => (actionSuccess2 = s.b));
 
         expect((actionSuccess1 as any).data).toBe(action1.payload);
         expect((actionSuccess2 as any).data).toBe(action2.payload);

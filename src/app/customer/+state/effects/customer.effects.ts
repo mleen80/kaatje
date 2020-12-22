@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect } from '@ngrx/effects';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { MarkAsUnsubmittedAction } from 'ngrx-forms';
 import { switchMap, tap, withLatestFrom } from 'rxjs/operators';
 
@@ -11,7 +11,7 @@ import { selectFindCustomerForm } from '../selectors/find-customer.selectors';
 
 @Injectable()
 export class CustomerEffects {
-  public formState$ = this.store$.pipe(select(selectFindCustomerForm));
+  public formState$ = this.store$.select(selectFindCustomerForm);
 
   public loadCustomerStatus$ = createEffect(() =>
     this.actions$.pipe(
@@ -24,7 +24,7 @@ export class CustomerEffects {
 
   constructor(
     private readonly actions$: Actions,
-    private readonly store$: Store<any>,
+    private readonly store$: Store,
     private router: Router
   ) {}
 }

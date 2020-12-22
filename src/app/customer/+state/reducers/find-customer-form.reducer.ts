@@ -7,6 +7,7 @@ import {
   validate,
 } from 'ngrx-forms';
 import { maxLength, minLength, pattern, required } from 'ngrx-forms/validation';
+import { chainUpdateFns } from '../../../shared/utils/apply-update-fns';
 
 import { enforceNumeric } from '../../../shared/utils/form-reducer.utils';
 import { NUMERIC } from '../../../shared/utils/pattern.utils';
@@ -28,29 +29,22 @@ export const initialFormState = createFormGroupState<FindCustomerFormValues>(
   initialFormValues
 );
 
-const validateForm = (form: FindCustomerForm) => {
-  return updateGroup<FindCustomerFormValues>(form, {
-    accountId: validate([
-      required,
-      pattern(NUMERIC),
-      minLength(9),
-      maxLength(10),
-    ]),
-  });
-};
+const validateForm = updateGroup<FindCustomerFormValues>({
+  accountId: validate([
+    required,
+    pattern(NUMERIC),
+    minLength(9),
+    maxLength(10),
+  ]),
+});
 
-const updateForm = (form: FindCustomerForm, action: AllowedActions) => {
-  return updateGroup<FindCustomerFormValues>(form, {
-    accountId: enforceNumeric,
-  });
-};
+const updateForm = updateGroup<FindCustomerFormValues>({
+  accountId: enforceNumeric,
+});
 
-export function reducer(
-  form: FindCustomerForm = initialFormState,
-  action: AllowedActions
-): FindCustomerForm {
-  form = formStateReducer(form, action);
-  form = updateForm(form, action);
-  form = validateForm(form);
-  return form;
-}
+export const reducer = chainUpdateFns(
+  initialFormState,
+  formStateReducer,
+  updateForm,
+  validateForm
+);
