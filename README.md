@@ -22,31 +22,31 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## External Documentation
 
 - Angular
-- https://angular.io/guide/quickstart
-- https://angular.io/tutorial
-- https://angular.io/guide/styleguide
+  - https://angular.io/guide/quickstart
+  - https://angular.io/tutorial
+  - https://angular.io/guide/styleguide
 
-- https://angular.io/guide/universal
+  - https://angular.io/guide/universal
 
 - Reactive programming - RxJS
 
-- http://paulstovell.com/blog/reactive-programming
+  - http://paulstovell.com/blog/reactive-programming
 
-- https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
+  - https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
 
-- http://rxmarbles.com/
+  - http://rxmarbles.com/
 
 - Flux pattern & state management - NgRX
 
-- https://facebook.github.io/flux/docs/in-depth-overview/
-- https://gist.github.com/btroncone/a6e4347326749f938510
-- https://github.com/ngrx/platform
+  - https://facebook.github.io/flux/docs/in-depth-overview/
+  - https://gist.github.com/btroncone/a6e4347326749f938510
+  - https://github.com/ngrx/platform
 
 - ngrx-forms
 
-- https://rangle.io/blog/ngrx-forms/
-- https://ngrx-forms.readthedocs.io/en/master/
+  - https://rangle.io/blog/ngrx-forms/
+  - https://ngrx-forms.readthedocs.io/en/master/
 
 
 - Nice to know: JSS - nodeJS SSR voor Angular.
-- https://jss.sitecore.net/
+  - https://jss.sitecore.net/
