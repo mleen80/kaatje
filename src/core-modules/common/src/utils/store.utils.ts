@@ -51,6 +51,6 @@ export function createAsyncStateReducer<G, T>(
       error: payload,
       actionId,
     })),
-    ...clearActions.map((a) => on(a, () => initialState))
+    ...clearActions.map(a => on<AsyncState<T>, ActionCreator[]>(a, () => initialState))
   );
 }
