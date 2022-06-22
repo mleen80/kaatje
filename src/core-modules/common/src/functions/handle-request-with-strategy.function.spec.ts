@@ -1,20 +1,20 @@
-import { BaseAction } from '../actions/base.action';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { handleRequestWithStrategy } from './handle-request-with-strategy.function';
 import { TestBed } from '@angular/core/testing';
+
+import { handleRequestWithStrategy } from './handle-request-with-strategy.function';
 import { RequestStrategy } from '../enums/request-strategy.enum';
+import { createBaseAction } from '../factories';
+import { BaseActionType } from '../interfaces';
 
 describe('Handle request with strategy fn', () => {
     let httpTestingController: HttpTestingController;
     let httpClient: HttpClient;
-    let subject$: Subject<BaseAction<{ url: string }>>;
+    let subject$: Subject<BaseActionType<{ url: string }>>;
 
-    class RequestAction extends BaseAction<{ url: string }> {
-        type = 'request';
-    }
+    const requestAction = createBaseAction<{ url: string }>('request');
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -23,7 +23,7 @@ describe('Handle request with strategy fn', () => {
 
         httpTestingController = TestBed.inject(HttpTestingController);
         httpClient = TestBed.inject(HttpClient);
-        subject$ = new Subject<BaseAction<{ url: string }>>();
+        subject$ = new Subject<BaseActionType<{ url: string }>>();
     });
 
     afterEach(() => {
@@ -37,10 +37,10 @@ describe('Handle request with strategy fn', () => {
             const spy = jasmine.createSpy('request handler');
 
             handleRequestWithStrategy(subject$, action =>
-                httpClient.get(action.payload.url).pipe(map(() => new RequestAction()))
+                httpClient.get(action.payload.url).pipe(map(() => requestAction()))
             ).subscribe(spy);
 
-            const firstAction = new RequestAction({
+            const firstAction = requestAction({
                 requestStrategy: RequestStrategy.CANCEL,
                 payload: {
                     url: 'first cancellable request'
@@ -48,7 +48,7 @@ describe('Handle request with strategy fn', () => {
             });
             subject$.next(firstAction);
 
-            const secondAction = new RequestAction({
+            const secondAction = requestAction({
                 requestStrategy: RequestStrategy.CANCEL,
                 payload: {
                     url: 'second cancellable request'
@@ -67,10 +67,10 @@ describe('Handle request with strategy fn', () => {
             const spy = jasmine.createSpy('request handler');
 
             handleRequestWithStrategy(subject$, action =>
-                httpClient.get(action.payload.url).pipe(map(() => new RequestAction()))
+                httpClient.get(action.payload.url).pipe(map(() => requestAction()))
             ).subscribe(spy);
 
-            const firstAction = new RequestAction({
+            const firstAction = requestAction({
                 requestStrategy: RequestStrategy.CANCEL,
                 payload: {
                     url: 'first cancellable request'
@@ -78,7 +78,7 @@ describe('Handle request with strategy fn', () => {
             });
             subject$.next(firstAction);
 
-            const secondAction = new RequestAction({
+            const secondAction = requestAction({
                 requestStrategy: RequestStrategy.SEQUENCE,
                 payload: {
                     url: 'second cancellable request'
@@ -97,10 +97,10 @@ describe('Handle request with strategy fn', () => {
             const spy = jasmine.createSpy('request handler');
 
             handleRequestWithStrategy(subject$, action =>
-                httpClient.get(action.payload.url).pipe(map(() => new RequestAction()))
+                httpClient.get(action.payload.url).pipe(map(() => requestAction()))
             ).subscribe(spy);
 
-            const firstAction = new RequestAction({
+            const firstAction = requestAction({
                 requestStrategy: RequestStrategy.CANCEL,
                 payload: {
                     url: 'first cancellable request'
@@ -108,7 +108,7 @@ describe('Handle request with strategy fn', () => {
             });
             subject$.next(firstAction);
 
-            const secondAction = new RequestAction({
+            const secondAction = requestAction({
                 requestStrategy: RequestStrategy.PARALLEL,
                 payload: {
                     url: 'second cancellable request'
@@ -128,10 +128,10 @@ describe('Handle request with strategy fn', () => {
             const spy = jasmine.createSpy('request handler');
 
             handleRequestWithStrategy(subject$, action =>
-                httpClient.get(action.payload.url).pipe(map(() => new RequestAction()))
+                httpClient.get(action.payload.url).pipe(map(() => requestAction()))
             ).subscribe(spy);
 
-            const firstAction = new RequestAction({
+            const firstAction = requestAction({
                 requestStrategy: RequestStrategy.PARALLEL,
                 payload: {
                     url: 'first parallel request'
@@ -139,7 +139,7 @@ describe('Handle request with strategy fn', () => {
             });
             subject$.next(firstAction);
 
-            const secondAction = new RequestAction({
+            const secondAction = requestAction({
                 requestStrategy: RequestStrategy.PARALLEL,
                 payload: {
                     url: 'second parallel request'
@@ -161,10 +161,10 @@ describe('Handle request with strategy fn', () => {
             const spy = jasmine.createSpy('request handler');
 
             handleRequestWithStrategy(subject$, action =>
-                httpClient.get(action.payload.url).pipe(map(() => new RequestAction()))
+                httpClient.get(action.payload.url).pipe(map(() => requestAction()))
             ).subscribe(spy);
 
-            const firstAction = new RequestAction({
+            const firstAction = requestAction({
                 requestStrategy: RequestStrategy.SEQUENCE,
                 payload: {
                     url: 'first parallel request'
@@ -172,7 +172,7 @@ describe('Handle request with strategy fn', () => {
             });
             subject$.next(firstAction);
 
-            const secondAction = new RequestAction({
+            const secondAction = requestAction({
                 requestStrategy: RequestStrategy.SEQUENCE,
                 payload: {
                     url: 'second parallel request'
