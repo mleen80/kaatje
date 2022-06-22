@@ -4,7 +4,6 @@ import { TestBed } from '@angular/core/testing';
 
 import {
     AsyncState,
-    BaseAction,
     BaseActionParam,
     BaseEffect,
     CLIENT_KEY,
@@ -34,11 +33,6 @@ describe('Public api common', () => {
     describe('Common core module', () => {
         it('should be exposed', () => {
             expect(CommonCoreModule).toBeDefined();
-        });
-    });
-    describe('Common actions public api', () => {
-        it('should expose BaseAction', () => {
-            expect(new BaseAction()).toBeDefined();
         });
     });
     describe('Common decoders public api', () => {
@@ -127,16 +121,6 @@ describe('Public api common', () => {
 
         it('should expose isNullOrUndefined', () => {
             expect(isNullOrUndefined).toBeDefined();
-        });
-    });
-
-    describe('Common services public api', () => {
-        beforeEach(() => {
-            const providers: any[] = [];
-            TestBed.configureTestingModule({
-                imports: [HttpClientTestingModule],
-                providers
-            });
         });
     });
 

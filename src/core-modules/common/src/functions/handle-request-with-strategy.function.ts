@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import { merge, Observable } from 'rxjs';
 import { concatMap, filter, mergeMap, switchMap, takeUntil } from 'rxjs/operators';
-import { BaseAction } from '../actions/base.action';
+import { BaseActionType } from '../interfaces';
 import { RequestStrategy } from '../enums/request-strategy.enum';
 
 /**
@@ -12,7 +12,7 @@ export type RequestHandler<T> = (params: T) => Observable<Action>;
 /**
  * Function used in each effect that implements the [RequestStrategy](./enumerations.html#RequestStrategy)
  */
-export function handleRequestWithStrategy<T, U extends BaseAction<T>>(
+export function handleRequestWithStrategy<T, U extends BaseActionType<T>>(
     action$: Observable<U>,
     requestHandler: RequestHandler<U>
 ) {
