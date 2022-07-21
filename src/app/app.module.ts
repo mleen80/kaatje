@@ -3,8 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CoreModule } from './core/core.module';
+import { Leegstand } from './customer/leegstand/leegstand.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    Leegstand
+  ],
   imports: [CoreModule, AppRoutingModule],
   bootstrap: [AppComponent],
 })
