@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { routeConfiguration } from './app.model';
+import { CustomerComponent } from './customer/components';
 import { LeegstandComponent } from './leegstand/leegstand.component';
 
 const routes: Routes = [
