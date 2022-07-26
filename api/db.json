@@ -9,8 +9,10 @@
                 "gender": "male",
                 "initials": "T",
                 "firstName": "Test",
-                "dateOfBirth": "1970-01-01"
+                "dateOfBirth": "1970-01-01",
+                "adress": "Scharwoudestraat 101, 5035LR Tilburg"
             }
+
         },
         {
             "id": "0000000000",

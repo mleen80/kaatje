@@ -5,6 +5,7 @@
     <strong>id</strong>  {{ data.accountId }}<br/>
     <strong>Fullname</strong>  {{ data.person?.fullName }}<br/>
     <strong>Date of birth</strong>  {{ data.person?.dateOfBirth | date:'fullDate' }}<br/>
+    <strong>Adress</strong>  {{ data.person?.adress }}<br/>
   </ng-template>
   <ng-template error let-error="error">
     <p *ngIf="error.status === 404">Customer not found</p>
@@ -12,6 +13,10 @@
   </ng-template>
 </app-async>
 <br/>
-<button type="button" class="btn btn-primary"
+<button type="button" class="btn btn-outline-primary me-2"
+[routerLink]="['/leegstand/leegstand']">
+  Leegstand toevoegen
+</button>
+<button type="button" class="btn btn-outline-primary"
 [routerLink]="['../']">back</button>
 </div>
