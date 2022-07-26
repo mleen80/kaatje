@@ -6,6 +6,6 @@ import { Component } from "@angular/core";
   styleUrls: ['./leegstand.component.css']
 })
 
-export class Leegstand {
+export class LeegstandComponent {
 
 }
