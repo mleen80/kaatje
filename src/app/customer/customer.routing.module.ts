@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { CustomerComponent, FindCustomerComponent } from './components';
 import { CustomerResolve } from './+state/customer.resolve';
+
 
 const routes: Routes = [
   {

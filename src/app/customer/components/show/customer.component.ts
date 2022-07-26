@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-
 import { selectCustomerState } from '../../+state/selectors/customer.selectors';
 
 @Component({

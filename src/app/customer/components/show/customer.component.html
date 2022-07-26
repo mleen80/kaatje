@@ -1,5 +1,4 @@
 <h1>Customer</h1>
-
 <app-async [asyncState$]="customerState$">
   <ng-template success let-data="data">
     <strong>id</strong>  {{ data.accountId }}<br/>
@@ -11,5 +10,7 @@
     <p *ngIf="error.status > 499">Internal server error</p>
   </ng-template>
 </app-async>
-<br />
-<small><a [routerLink]="['../']">back</a> </small>
+<br/>
+<button class="btn-primary"
+style="background-color: #0098b3; color: white"
+[routerLink]="['../']">back</button>
