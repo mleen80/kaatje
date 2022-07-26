@@ -4,11 +4,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './header/header.component';
-import { Leegstand } from './leegstand/leegstand.component';
+import { LeegstandComponent } from './leegstand/leegstand.component';
 @NgModule({
   declarations: [
     AppComponent,
-    Leegstand,
+    LeegstandComponent,
     HeaderComponent
   ],
   imports: [CoreModule, AppRoutingModule],
