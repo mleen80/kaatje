@@ -5,7 +5,8 @@
     <strong>id</strong>  {{ data.accountId }}<br/>
     <strong>Fullname</strong>  {{ data.person?.fullName }}<br/>
     <strong>Date of birth</strong>  {{ data.person?.dateOfBirth | date:'fullDate' }}<br/>
-    <strong>Adress</strong>  {{ data.person?.adress }}<br/>
+    <strong>Adress</strong>  {{ data.person?.adress1 }}<br/>
+    <strong>Adress</strong>  {{ data.person?.adress2 }}<br/>
   </ng-template>
   <ng-template error let-error="error">
     <p *ngIf="error.status === 404">Customer not found</p>

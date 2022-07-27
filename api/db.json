@@ -10,7 +10,8 @@
                 "initials": "T",
                 "firstName": "Test",
                 "dateOfBirth": "1970-01-01",
-                "adress": "Scharwoudestraat 101, 5035LR Tilburg"
+                "adress 1": "Scharwoudestraat 101, 5035LR Tilburg",
+                "adress 2": "Boxmeerstraat 141, 5043ZC Tilburg"
             }
 
         },
