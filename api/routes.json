@@ -1,5 +1,6 @@
 {
     "/api/*": "/$1",
     "/customer/*/v*": "/$1",
-    "/billing/*/v*": "/$1"
+    "/billing/*/v*": "/$1",
+    "/addresses/*/v*": "/$1"
 }

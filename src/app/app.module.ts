@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './header/header.component';
 import { LeegstandComponent } from './leegstand/leegstand.component';
+
 @NgModule({
   declarations: [
     AppComponent,
