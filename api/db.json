@@ -9,9 +9,7 @@
                 "gender": "male",
                 "initials": "T",
                 "firstName": "Test",
-                "dateOfBirth": "1970-01-01",
-                "adress 1": "Scharwoudestraat 101, 5035LR Tilburg",
-                "adress 2": "Boxmeerstraat 141, 5043ZC Tilburg"
+                "dateOfBirth": "1970-01-01"
             }
 
         },
@@ -37,5 +35,24 @@
             "id": "0000000000",
             "amount": 150
         }
+    ],
+    "addresses": [
+        {
+            "id": 1,
+            "streetName": "Scharwoudestraat",
+            "houseNumber": 101,
+            "houseNumberExtension": "",
+            "postCode": "5035LR",
+            "city": "Tilburg"
+        },
+        {
+          "id": 2,
+          "streetName": "Boxmeerstraat",
+          "houseNumber": 141,
+          "houseNumberExtension": "",
+          "postCode": "5043ZC",
+          "city": "Tilburg"
+      }
+
     ]
 }

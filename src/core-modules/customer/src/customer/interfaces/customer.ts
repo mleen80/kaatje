@@ -22,8 +22,6 @@ export interface Person {
     title?: string;
     dateOfBirth?: string;
     vatNumber?: string;
-    adress1: string;
-    adress2: string;
 }
 
 export interface Organisation {

@@ -1,5 +1,21 @@
-<div >
-  <h1>Leegstand</h1>
-  <button type="button" class="btn btn-primary"
-  [routerLink]="['']">back</button>
-</div>
+
+<section class="position-relative pt-24 pt-md-32 overflow-hidden">
+  <div class="container">
+    <h1>Leegstand</h1>
+    <p>
+     <div *ngFor="let address of addresses; index as i">
+      <td>
+        {{ address.streetName }}
+      </td>
+     </div>
+    <hr>
+    <button type="button" class="btn btn-primary" onclick="addAddress">
+      Nieuw adres toevoegen
+    </button>
+    <hr>
+    <button type="button" class="btn btn-primary"
+    [routerLink]="['']">back</button>
+    </div>
+    </section>
+
+
