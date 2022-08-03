@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
@@ -12,7 +13,11 @@ import { LeegstandComponent } from './leegstand/leegstand.component';
     LeegstandComponent,
     HeaderComponent
   ],
-  imports: [CoreModule, AppRoutingModule],
+  imports: [
+    CoreModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
