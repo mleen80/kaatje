@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Address } from "../address";
 
 @Injectable()
@@ -14,7 +13,7 @@ export class LeegstandService {
 
   getAddresses(): Observable<Address[]>
   {
-   return this.http.get<Address[]>("api/addresses/addresses/1/v1")
+   return this.http.get<Address[]>("api/addresses/addresses/v1")
 
   }
 }

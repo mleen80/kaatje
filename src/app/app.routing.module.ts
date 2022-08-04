@@ -9,7 +9,8 @@ const routes: Routes = [
     path: '',
     loadChildren: () =>
       import('./customer/customer.module').then((m) => m.CustomerModule)},
-      {path: 'leegstand/:leegstand', component: LeegstandComponent}
+    {path: 'leegstand/:leegstand', component: LeegstandComponent},
+    {path: './customer/customer', component: CustomerComponent}
 
 ];
 
