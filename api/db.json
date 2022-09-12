@@ -58,7 +58,18 @@
           "eanElectricity": 123456789987654321,
           "eanGas": 987654321123456789,
           "status": "Past"
-      }
+      },
+      {
+        "id": 3,
+        "streetName": "Maarten Trompstraat",
+        "houseNumber": 55,
+        "houseNumberExtension": "",
+        "postCode": "5262VK",
+        "city": "Vught",
+        "eanElectricity": 123456789987654326,
+        "eanGas": 987654321123454789,
+        "status": "Future"
+    }
 
     ]
 }

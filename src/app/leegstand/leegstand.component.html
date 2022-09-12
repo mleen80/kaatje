@@ -7,12 +7,24 @@
     </button>
     <button type="button" class="btn btn-warning">Adres afmelden</button>
     <hr>
-    <div *ngFor="let address of addresses; index as i">
+
+<ng-container  *ngFor="let address of addresses; index as i">
+    <div *ngIf="address.status !== 'Past'">
       <p>
-        {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}
+        {{ address.status }},  {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}, <br> EAN stroom: {{ address.eanElectricity }}, <br> EAN gas: {{ address.eanGas}}
       </p>
     </div>
-    <hr>
+  </ng-container>
+<hr>
+<ng-container  *ngFor="let address of addresses; index as i">
+  <div *ngIf="address.status == 'Past'">
+    <p>
+      {{ address.status }},  {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}, <br> EAN stroom: {{ address.eanElectricity }}, <br> EAN gas: {{ address.eanGas}}
+    </p>
+  </div>
+</ng-container>
+<hr>
+
     <button type="button" class="btn btn-primary"
     [routerLink]="['']">back</button>
   </div>

@@ -3,6 +3,7 @@ import { Address } from "./address";
 import { OnInit } from "@angular/core";
 import { LeegstandService } from "./service/leegstand.service";
 import { Observable } from "rxjs/internal/Observable";
+
 @Component({
   selector: 'app-leegstand',
   templateUrl: './leegstand.component.html',
