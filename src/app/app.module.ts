@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app.routing.module';
 import { CoreModule } from './core/core.module';
 import { HeaderComponent } from './header/header.component';
 import { LeegstandComponent } from './leegstand/leegstand.component';
+import { ListAddressesComponent } from './address/list-addresses/list-addresses.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LeegstandComponent,
-    HeaderComponent
+    HeaderComponent,
+    ListAddressesComponent
   ],
   imports: [
     CoreModule,

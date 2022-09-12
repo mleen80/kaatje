@@ -1,39 +1,28 @@
-import { Component } from "@angular/core";
-import { Address } from "./address";
+import { Component, OnChanges, Output } from "@angular/core";
+import { Address } from "../api/address/address";
 import { OnInit } from "@angular/core";
-import { LeegstandService } from "./service/leegstand.service";
+import { AddressService } from "../api/address/address.service";
 import { Observable } from "rxjs/internal/Observable";
 
 @Component({
   selector: 'app-leegstand',
   templateUrl: './leegstand.component.html',
-  providers: [LeegstandService]
+  providers: [AddressService]
 
 })
 
-export class LeegstandComponent implements OnInit {
-  // addresses: Address[];
-  // addresses: Address[] = [];
-  // Url = "api/addresses/addresses/1/v1";
-  addresses$: Observable<Address[]> = this.leegstandService.getAddresses();
+export class LeegstandComponent implements OnInit{
+
+  addresses$?: Observable<Address[]>
 
   constructor(
-    private leegstandService: LeegstandService
+    private addressService: AddressService
     ) {}
 
-    // getPosts() : void {
-    //   this.leegstandService.getAddresses(this.Url)
-    //     .subscribe(
-    //       data => this.addresses.push(data)
-    //     )
-    // }
+
 
   ngOnInit() {
-    // this.getPosts()
+     this.addresses$ = this.addressService.getAddresses();
+
     }
-
-
-  // addAddress () {
-
-  // }
 }
