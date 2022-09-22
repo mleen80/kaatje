@@ -7,4 +7,6 @@ export interface Address {
   eanElectricity: number;
   eanGas: number;
   status: string;
+  eanEStatus: string;
+  eanGStatus: string;
 }

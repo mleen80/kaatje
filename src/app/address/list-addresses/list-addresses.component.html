@@ -1,6 +1,11 @@
 <ng-container  *ngFor="let address of addresses; index as i">
-  <table *ngIf="address.status !== 'Past'">
-    <tr><td>{{ address.status }}</td><td> {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}</td></tr>
+  <table *ngIf="address.status == 'Active'">
+    <tr><td class="active"></td><td> {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}</td></tr>
+    <tr><td></td><td> EAN stroom:</td><td> {{ address.eanElectricity }}</td></tr>
+    <tr><td> </td><td> EAN gas: </td><td>{{ address.eanGas}}</td></tr>
+  </table>
+  <table *ngIf="address.status == 'Future'">
+    <tr><td class="future"></td><td> {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}</td></tr>
     <tr><td></td><td> EAN stroom:</td><td> {{ address.eanElectricity }}</td></tr>
     <tr><td> </td><td> EAN gas: </td><td>{{ address.eanGas}}</td></tr>
   </table>
@@ -8,8 +13,8 @@
 <hr>
 <ng-container  *ngFor="let address of addresses; index as i">
   <table *ngIf="address.status == 'Past'">
-  <tr><td>{{ address.status }}</td><td> {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}</td></tr>
-  <tr><td></td><td> EAN stroom:</td><td> {{ address.eanElectricity }}</td></tr>
+  <tr><td class="past"></td><td> {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}</td></tr>
+  <tr><td *ngIf="address.eanEStatus"></td><td> EAN stroom:</td><td> {{ address.eanElectricity }}</td></tr>
   <tr><td> </td><td> EAN gas: </td><td>{{ address.eanGas}}</td></tr>
 </table>
 </ng-container>
