@@ -9,6 +9,7 @@ import { Address } from 'src/app/api/address/address';
 })
 export class ListAddressesComponent implements OnInit {
   @Input() addresses!: Address[];
+  status = ['Active', 'Future', 'Past']
 
   constructor() { }
 

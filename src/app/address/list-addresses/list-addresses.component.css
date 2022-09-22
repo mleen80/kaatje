@@ -21,3 +21,7 @@
     border-radius: 50%;
     display: inline-block;
   }
+  td {
+    padding-left:10px;
+    text-align: left;
+    }
