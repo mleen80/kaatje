@@ -1,15 +1,15 @@
 <ng-container  *ngFor="let address of addresses; index as i">
-  <div *ngIf="address.status !== 'Past'">
-    <p>
-      {{ address.status }},  {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}, <br> EAN stroom: {{ address.eanElectricity }}, <br> EAN gas: {{ address.eanGas}}
-    </p>
-  </div>
+  <table *ngIf="address.status !== 'Past'">
+    <tr><td>{{ address.status }}</td><td> {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}</td></tr>
+    <tr><td></td><td> EAN stroom:</td><td> {{ address.eanElectricity }}</td></tr>
+    <tr><td> </td><td> EAN gas: </td><td>{{ address.eanGas}}</td></tr>
+  </table>
 </ng-container>
 <hr>
 <ng-container  *ngFor="let address of addresses; index as i">
-<div *ngIf="address.status == 'Past'">
-  <p>
-    {{ address.status }},  {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}, <br> EAN stroom: {{ address.eanElectricity }}, <br> EAN gas: {{ address.eanGas}}
-  </p>
-</div>
+  <table *ngIf="address.status == 'Past'">
+  <tr><td>{{ address.status }}</td><td> {{ address.streetName}} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}{{address.houseNumberExtension}}, {{address.postCode}} {{ address.city }}</td></tr>
+  <tr><td></td><td> EAN stroom:</td><td> {{ address.eanElectricity }}</td></tr>
+  <tr><td> </td><td> EAN gas: </td><td>{{ address.eanGas}}</td></tr>
+</table>
 </ng-container>

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
@@ -20,7 +21,8 @@ import { ListAddressesComponent } from './address/list-addresses/list-addresses.
     CoreModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent],
 })

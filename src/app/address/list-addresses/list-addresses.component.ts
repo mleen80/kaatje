@@ -5,7 +5,7 @@ import { Address } from 'src/app/api/address/address';
 @Component({
   selector: 'app-list-addresses',
   templateUrl: './list-addresses.component.html',
-  styleUrls: ['./list-addresses.component.scss']
+  styleUrls: ['./list-addresses.component.css']
 })
 export class ListAddressesComponent implements OnInit {
   @Input() addresses!: Address[];
