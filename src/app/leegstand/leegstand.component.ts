@@ -3,6 +3,7 @@ import { Address } from "../api/address/address";
 import { OnInit } from "@angular/core";
 import { AddressService } from "../api/address/address.service";
 import { Observable } from "rxjs/internal/Observable";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-leegstand',
@@ -16,7 +17,8 @@ export class LeegstandComponent implements OnInit{
   addresses$?: Observable<Address[]>
 
   constructor(
-    private addressService: AddressService
+    private addressService: AddressService,
+    private router: Router
     ) {}
 
 
@@ -24,5 +26,9 @@ export class LeegstandComponent implements OnInit{
   ngOnInit() {
      this.addresses$ = this.addressService.getAddresses();
 
+    }
+
+    onAddAddress(){
+      this.router.navigate(['address/add-address'])
     }
 }

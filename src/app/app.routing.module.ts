@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddAddressComponent } from './address/add-address/add-address.component';
 import { routeConfiguration } from './app.model';
 import { CustomerComponent } from './customer/components';
 import { LeegstandComponent } from './leegstand/leegstand.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./customer/customer.module').then((m) => m.CustomerModule)},
     {path: 'leegstand/:leegstand', component: LeegstandComponent},
-    {path: './customer/customer', component: CustomerComponent}
+    {path: './customer/customer', component: CustomerComponent},
+    {path: 'address/:add-address', component: AddAddressComponent}
 
 ];
 
