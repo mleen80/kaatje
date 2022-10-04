@@ -1,41 +1,52 @@
 <div class="container">
-  <form class="row g-3">
+  <form class="row g-3" [formGroup]="addAddress">
     <h1>Vul onderstaand formulier in:</h1>
     <hr>
     <h4>Adresgegevens</h4>
+
     <div class="col-6">
       <label for="straat" class="form-label">Straat</label>
-      <input type="text" class="form-control" id="straat" placeholder="">
+      <input type="text" class="form-control" id="straat" placeholder="" formControlName="straat" required="true">
+      <span *ngIf="!addAddress.get('straat')?.valid && addAddress.get('straat')?.touched" class="help-block">
+        Dit is een verplicht veld!
+      </span>
     </div>
     <div class="col-3">
       <label for="huisnummer" class="form-label">Huisnummer</label>
-      <input type="text" class="form-control" id="huisnummer" placeholder="">
+      <input type="text" class="form-control" id="huisnummer" placeholder="" formControlName="huisnummer">
+      <span  *ngIf="!addAddress.get('huisnummer')?.valid && addAddress.get('huisnummer')?.touched">
+        <span *ngIf="addAddress.get('huisnummer')?.hasError('required')">Dit is een verplicht veld!</span>
+        <span *ngIf="addAddress.get('huisnummer')?.hasError('pattern')">Dit is geen geldig huisnummer!</span>
+      </span>
     </div>
     <div class="col-md-3">
       <label for="toevoeging" class="form-label">Toevoeging</label>
-      <input type="text" class="form-control" id="toevoeging">
+      <input type="text" class="form-control" id="toevoeging" formControlName="toevoeging">
     </div>
     <div class="col-md-2">
       <label for="postcode" class="form-label">Postcode</label>
-      <input type="text" class="form-control" id="postcode">
+      <input type="text" class="form-control" id="postcode" formControlName="postcode">
     </div>
     <div class="col-md-4">
       <label for="woonplaats" class="form-label">Woonplaats</label>
-      <input type="text" id="woonplaats" class="form-control">
+      <input type="text" id="woonplaats" class="form-control" formControlName="woonplaats">
     </div>
     <hr class="hrLine">
+
     <h4>Aansluitgegevens:</h4>
     <div class="col-6">
-      <label for="eanstroom">EAN stroom</label>
-      <input type="text" id="eanstroom" class="form-control">
+      <label for="eanstroom" class="form-label">EAN stroom</label>
+      <input type="text" id="eanstroom" class="form-control" formControlName="eanstroom">
+        <span *ngIf="addAddress.get('eanstroom')?.errors?.minlength">De EAN heeft minimaal 18 nummers</span>
     </div>
     <div class="col-6">
-      <label for="eangas">EAN gas</label>
-      <input type="text" id="eangas" class="form-control">
+      <label for="eangas" class="form-label">EAN gas</label>
+      <input type="text" id="eangas" class="form-control" formControlName="eangas">
+      <span *ngIf="addAddress.get('eangas')?.errors?.minlength">De EAN heeft minimaal 18 nummers</span>
     </div>
     <div class="col-6">
-      <label for="date">Startdatum</label>
-      <input type="date" id="date" class="form-control">
+      <label for="date" class="form-label">Startdatum</label>
+      <input type="date" id="date" class="form-control" formControlName="startdatum">
     </div>
     <div class="col-12">
       <div class="form-check">
