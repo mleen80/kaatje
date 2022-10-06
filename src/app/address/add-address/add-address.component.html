@@ -26,9 +26,10 @@
     <div class="col-md-2">
       <label for="postcode" class="form-label">Postcode</label>
       <input type="text" class="form-control" id="postcode" formControlName="postcode">
-      <span *ngIf="!addAddress.get('postcode')?.valid && addAddress.get('postcode')?.touched" class="help-block">
-        Dit is een verplicht veld!
-      </span>
+      <span  *ngIf="!addAddress.get('postcode')?.valid && addAddress.get('postcode')?.touched">
+        <span *ngIf="addAddress.get('postcode')?.hasError('required')">Dit is een verplicht veld!</span>
+        <span *ngIf="addAddress.get('postcode')?.hasError('pattern')">Dit is geen geldige postcode!</span>
+        </span>
     </div>
     <div class="col-md-4">
       <label for="woonplaats" class="form-label">Woonplaats</label>
@@ -45,7 +46,7 @@
       <input type="text" id="eanstroom" class="form-control" formControlName="eanstroom">
       <span *ngIf="!addAddress.get('eanstroom')?.valid && addAddress.get('eanstroom')?.touched">
         <span *ngIf="addAddress.get('eanstroom')?.hasError('required')">Dit is een verplicht veld!</span>
-        <!-- <span *ngIf="addAddress.get('eanstroom')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span> -->
+        <span *ngIf="addAddress.get('eanstroom')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span>
         <span *ngIf="addAddress.get('eanstroom')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</span>
         </span>
     </div>
@@ -54,7 +55,7 @@
       <input type="text" id="eangas" class="form-control" formControlName="eangas">
       <span *ngIf="!addAddress.get('eangas')?.valid && addAddress.get('eangas')?.touched">
         <span *ngIf="addAddress.get('eangas')?.hasError('required')">Dit is een verplicht veld!</span>
-        <!-- <span *ngIf="addAddress.get('eangas')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span> -->
+        <span *ngIf="addAddress.get('eangas')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span>
         <span *ngIf="addAddress.get('eangas')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</span>
         </span>
     </div>
@@ -69,7 +70,7 @@
       <div class="form-check">
         <input class="form-check-input" type="checkbox" id="nextaddress">
         <label class="form-check-label" for="nextaddress">
-          Voeg nog een adres toe.
+          Voeg nog een adres toe
         </label>
       </div>
     </div>
