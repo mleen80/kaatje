@@ -26,10 +26,16 @@
     <div class="col-md-2">
       <label for="postcode" class="form-label">Postcode</label>
       <input type="text" class="form-control" id="postcode" formControlName="postcode">
+      <span *ngIf="!addAddress.get('postcode')?.valid && addAddress.get('postcode')?.touched" class="help-block">
+        Dit is een verplicht veld!
+      </span>
     </div>
     <div class="col-md-4">
       <label for="woonplaats" class="form-label">Woonplaats</label>
       <input type="text" id="woonplaats" class="form-control" formControlName="woonplaats">
+      <span *ngIf="!addAddress.get('woonplaats')?.valid && addAddress.get('woonplaats')?.touched" class="help-block">
+        Dit is een verplicht veld!
+      </span>
     </div>
     <hr class="hrLine">
 
@@ -37,16 +43,27 @@
     <div class="col-6">
       <label for="eanstroom" class="form-label">EAN stroom</label>
       <input type="text" id="eanstroom" class="form-control" formControlName="eanstroom">
-        <span *ngIf="addAddress.get('eanstroom')?.errors?.minlength">De EAN heeft minimaal 18 nummers</span>
+      <span *ngIf="!addAddress.get('eanstroom')?.valid && addAddress.get('eanstroom')?.touched">
+        <span *ngIf="addAddress.get('eanstroom')?.hasError('required')">Dit is een verplicht veld!</span>
+        <!-- <span *ngIf="addAddress.get('eanstroom')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span> -->
+        <span *ngIf="addAddress.get('eanstroom')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</span>
+        </span>
     </div>
     <div class="col-6">
       <label for="eangas" class="form-label">EAN gas</label>
       <input type="text" id="eangas" class="form-control" formControlName="eangas">
-      <span *ngIf="addAddress.get('eangas')?.errors?.minlength">De EAN heeft minimaal 18 nummers</span>
+      <span *ngIf="!addAddress.get('eangas')?.valid && addAddress.get('eangas')?.touched">
+        <span *ngIf="addAddress.get('eangas')?.hasError('required')">Dit is een verplicht veld!</span>
+        <!-- <span *ngIf="addAddress.get('eangas')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span> -->
+        <span *ngIf="addAddress.get('eangas')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</span>
+        </span>
     </div>
     <div class="col-6">
       <label for="date" class="form-label">Startdatum</label>
       <input type="date" id="date" class="form-control" formControlName="startdatum">
+      <span *ngIf="!addAddress.get('startdatum')?.valid && addAddress.get('startdatum')?.touched" class="help-block">
+        Kies een startdatum
+      </span>
     </div>
     <div class="col-12">
       <div class="form-check">
@@ -60,7 +77,7 @@
       <button type="submit" class="btn btn-success">Opslaan</button>
     </div>
     <div class="col-2">
-      <button type="button" class="btn btn-danger">Annuleren</button>
+      <button type="button" class="btn btn-danger" (click)="onCancel()">Annuleren</button>
     </div>
   </form>
 </div>

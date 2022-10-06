@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { minLength } from 'ngrx-forms/validation';
 
 @Component({
@@ -10,7 +11,7 @@ import { minLength } from 'ngrx-forms/validation';
 export class AddAddressComponent implements OnInit {
   addAddress!: FormGroup;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.addAddress = new FormGroup({
@@ -19,11 +20,14 @@ export class AddAddressComponent implements OnInit {
       'toevoeging': new FormControl(null),
       'postcode': new FormControl(null, Validators.required),
       'woonplaats': new FormControl(null, Validators.required),
-      'eanstroom': new FormControl(null, [Validators.required, Validators.minLength(18)]),
-      'eangas': new FormControl(null, [Validators.required, Validators.minLength(18)]),
+      'eanstroom': new FormControl(null, [Validators.required, Validators.minLength(18), Validators.pattern("^(0|[1-9][0-9]*)$")]),
+      'eangas': new FormControl(null, [Validators.required, Validators.minLength(18), Validators.pattern("^(0|[1-9][0-9]*)$")]),
       'startdatum': new FormControl(null, Validators.required)
     })
   }
 
+  onCancel(){
+    this.router.navigate(['leegstand/:leegstand'])
+  }
 
 }
