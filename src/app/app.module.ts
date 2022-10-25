@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { LeegstandComponent } from './leegstand/leegstand.component';
 import { ListAddressesComponent } from './address/list-addresses/list-addresses.component';
 import { AddAddressComponent } from './address/add-address/add-address.component';
+import { AddressItemComponent } from './address-item/address-item.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { AddAddressComponent } from './address/add-address/add-address.component
     LeegstandComponent,
     HeaderComponent,
     ListAddressesComponent,
-    AddAddressComponent
+    AddAddressComponent,
+    AddressItemComponent
   ],
   imports: [
     CoreModule,
@@ -25,7 +28,7 @@ import { AddAddressComponent } from './address/add-address/add-address.component
     HttpClientModule,
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   bootstrap: [AppComponent],
 })

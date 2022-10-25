@@ -1,23 +1,22 @@
 <div class="container">
-  <form class="row g-3" [formGroup]="addAddress">
+  <form class="row g-3" [formGroup]="addAddress" (ngSubmit)="onSubmit()">
     <h1>Vul onderstaand formulier in:</h1>
     <hr>
     <h4>Adresgegevens</h4>
-
     <div class="col-6">
       <label for="straat" class="form-label">Straat</label>
       <input type="text" class="form-control" id="straat" placeholder="" formControlName="straat" required="true">
-      <span *ngIf="!addAddress.get('straat')?.valid && addAddress.get('straat')?.touched" class="help-block">
+      <div *ngIf="!addAddress.get('straat')?.valid && addAddress.get('straat')?.touched" class="help-block">
         Dit is een verplicht veld!
-      </span>
+      </div>
     </div>
     <div class="col-3">
       <label for="huisnummer" class="form-label">Huisnummer</label>
       <input type="text" class="form-control" id="huisnummer" placeholder="" formControlName="huisnummer">
-      <span  *ngIf="!addAddress.get('huisnummer')?.valid && addAddress.get('huisnummer')?.touched">
-        <span *ngIf="addAddress.get('huisnummer')?.hasError('required')">Dit is een verplicht veld!</span>
-        <span *ngIf="addAddress.get('huisnummer')?.hasError('pattern')">Dit is geen geldig huisnummer!</span>
-      </span>
+      <div  *ngIf="!addAddress.get('huisnummer')?.valid && addAddress.get('huisnummer')?.touched">
+        <div *ngIf="addAddress.get('huisnummer')?.hasError('required')">Dit is een verplicht veld!</div>
+        <div *ngIf="addAddress.get('huisnummer')?.hasError('pattern')">Dit is geen geldig huisnummer!</div>
+      </div>
     </div>
     <div class="col-md-3">
       <label for="toevoeging" class="form-label">Toevoeging</label>
@@ -26,17 +25,17 @@
     <div class="col-md-2">
       <label for="postcode" class="form-label">Postcode</label>
       <input type="text" class="form-control" id="postcode" formControlName="postcode">
-      <span  *ngIf="!addAddress.get('postcode')?.valid && addAddress.get('postcode')?.touched">
-        <span *ngIf="addAddress.get('postcode')?.hasError('required')">Dit is een verplicht veld!</span>
-        <span *ngIf="addAddress.get('postcode')?.hasError('pattern')">Dit is geen geldige postcode!</span>
-        </span>
+      <div  *ngIf="!addAddress.get('postcode')?.valid && addAddress.get('postcode')?.touched">
+        <div *ngIf="addAddress.get('postcode')?.hasError('required')">Dit is een verplicht veld!</div>
+        <div *ngIf="addAddress.get('postcode')?.hasError('pattern')">Dit is geen geldige postcode!</div>
+        </div>
     </div>
     <div class="col-md-4">
       <label for="woonplaats" class="form-label">Woonplaats</label>
       <input type="text" id="woonplaats" class="form-control" formControlName="woonplaats">
-      <span *ngIf="!addAddress.get('woonplaats')?.valid && addAddress.get('woonplaats')?.touched" class="help-block">
+      <div *ngIf="!addAddress.get('woonplaats')?.valid && addAddress.get('woonplaats')?.touched" class="help-block">
         Dit is een verplicht veld!
-      </span>
+      </div>
     </div>
     <hr class="hrLine">
 
@@ -44,41 +43,41 @@
     <div class="col-6">
       <label for="eanstroom" class="form-label">EAN stroom</label>
       <input type="text" id="eanstroom" class="form-control" formControlName="eanstroom">
-      <span *ngIf="!addAddress.get('eanstroom')?.valid && addAddress.get('eanstroom')?.touched">
-        <span *ngIf="addAddress.get('eanstroom')?.hasError('required')">Dit is een verplicht veld!</span>
-        <span *ngIf="addAddress.get('eanstroom')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span>
-        <span *ngIf="addAddress.get('eanstroom')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</span>
-        </span>
+      <div *ngIf="!addAddress.get('eanstroom')?.valid && addAddress.get('eanstroom')?.touched">
+        <div *ngIf="addAddress.get('eanstroom')?.hasError('required')">Dit is een verplicht veld!</div>
+        <div *ngIf="addAddress.get('eanstroom')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</div>
+        <div *ngIf="addAddress.get('eanstroom')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</div>
+        </div>
     </div>
     <div class="col-6">
       <label for="eangas" class="form-label">EAN gas</label>
       <input type="text" id="eangas" class="form-control" formControlName="eangas">
-      <span *ngIf="!addAddress.get('eangas')?.valid && addAddress.get('eangas')?.touched">
-        <span *ngIf="addAddress.get('eangas')?.hasError('required')">Dit is een verplicht veld!</span>
-        <span *ngIf="addAddress.get('eangas')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</span>
-        <span *ngIf="addAddress.get('eangas')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</span>
-        </span>
+      <div *ngIf="!addAddress.get('eangas')?.valid && addAddress.get('eangas')?.touched">
+        <div *ngIf="addAddress.get('eangas')?.hasError('required')">Dit is een verplicht veld!</div>
+        <div *ngIf="addAddress.get('eangas')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</div>
+        <div *ngIf="addAddress.get('eangas')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</div>
+        </div>
     </div>
     <div class="col-6">
       <label for="date" class="form-label">Startdatum</label>
       <input type="date" id="date" class="form-control" formControlName="startdatum">
-      <span *ngIf="!addAddress.get('startdatum')?.valid && addAddress.get('startdatum')?.touched" class="help-block">
+      <div *ngIf="!addAddress.get('startdatum')?.valid && addAddress.get('startdatum')?.touched" class="help-block">
         Kies een startdatum
-      </span>
+      </div>
     </div>
     <div class="col-12">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="nextaddress">
+        <input class="form-check-input" type="checkbox" id="nextaddress" (change)="onAddExtraAddress()">
         <label class="form-check-label" for="nextaddress">
           Voeg nog een adres toe
         </label>
       </div>
     </div>
     <div class="col-10">
-      <button type="submit" class="btn btn-success">Opslaan</button>
+      <button type="button" class="btn btn-danger" (click)="toOverview()">Annuleren</button>
     </div>
     <div class="col-2">
-      <button type="button" class="btn btn-danger" (click)="onCancel()">Annuleren</button>
+      <button type="submit" class="btn btn-success" [disabled]="!addAddress.valid">Opslaan</button>
     </div>
   </form>
 </div>

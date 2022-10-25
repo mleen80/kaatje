@@ -4,9 +4,10 @@ export interface Address {
   houseNumberExtension: string;
   postCode: string;
   city: string;
-  eanElectricity: number;
-  eanGas: number;
+  eanElectricity: string;
+  eanGas: string;
   status: string;
   eanEStatus: string;
   eanGStatus: string;
+  startDate: string;
 }

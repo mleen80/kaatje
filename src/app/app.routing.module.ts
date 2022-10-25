@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddressItemComponent } from './address-item/address-item.component';
 import { AddAddressComponent } from './address/add-address/add-address.component';
 import { routeConfiguration } from './app.model';
 import { CustomerComponent } from './customer/components';

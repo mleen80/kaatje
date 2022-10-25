@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
 import { Address } from 'src/app/api/address/address';
+
 
 @Component({
   selector: 'app-list-addresses',
@@ -9,7 +9,8 @@ import { Address } from 'src/app/api/address/address';
 })
 export class ListAddressesComponent implements OnInit {
   @Input() addresses!: Address[];
-  status = ['Active', 'Future', 'Past']
+  status = ['Active', 'Future', 'Past'];
+  panelOpenState = false;
 
   constructor() { }
 
