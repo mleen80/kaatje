@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { LeegstandComponent } from './leegstand/leegstand.component';
 import { ListAddressesComponent } from './address/list-addresses/list-addresses.component';
 import { AddAddressComponent } from './address/add-address/add-address.component';
-import { AddressItemComponent } from './address-item/address-item.component';
+import { AddressItemComponent } from './address/address-item/address-item.component';
 
 
 @NgModule({

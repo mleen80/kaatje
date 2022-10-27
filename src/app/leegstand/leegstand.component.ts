@@ -31,4 +31,8 @@ export class LeegstandComponent implements OnInit{
     onAddAddress(){
       this.router.navigate(['address/:add-address'])
     }
+
+    onBack(){
+      this.router.navigate([''])
+    }
 }

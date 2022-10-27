@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddressItemComponent } from './address-item/address-item.component';
+import { AddressItemComponent } from './address/address-item/address-item.component';
 import { AddAddressComponent } from './address/add-address/add-address.component';
 import { routeConfiguration } from './app.model';
 import { CustomerComponent } from './customer/components';
@@ -13,7 +13,8 @@ const routes: Routes = [
       import('./customer/customer.module').then((m) => m.CustomerModule)},
     {path: 'leegstand/:leegstand', component: LeegstandComponent},
     {path: './customer/customer', component: CustomerComponent},
-    {path: 'address/:add-address', component: AddAddressComponent}
+    {path: 'address/:add-address', component: AddAddressComponent},
+    {path: 'address/:address-item', component: AddressItemComponent}
 
 ];
 

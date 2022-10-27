@@ -1,5 +1,5 @@
-<h6>Actieve leveringsadressen</h6>
-<div class="accordion" id="accordionExample">
+<!-- <h6>Actieve leveringsadressen</h6> -->
+<!-- <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -18,4 +18,14 @@
       </div>
     </div>
   </div>
-  </div>
+  </div> -->
+
+  <div  *ngFor="let address of addresses; index as i">
+  <div class="divTable">
+    <div class="headRow">
+       <div class="divCell">{{ address.streetName | titlecase }} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}} {{address.houseNumberExtension}}, {{address.postCode}} {{ address.city | titlecase }}</div>
+       <div  class="divCell" [ngClass]="{'active':address.eanEStatus === 'Active', 'past':address.eanEStatus === 'Past', 'future':address.eanEStatus === 'Future'}">EAN stroom: {{ address.eanElectricity }} </div>
+       <div  class="divCell" [ngClass]="{'active':address.eanEStatus === 'Active', 'past':address.eanEStatus === 'Past', 'future':address.eanEStatus === 'Future'}">EAN gas: {{ address.eanGas }} </div>
+    </div>
+</div>
+</div>
