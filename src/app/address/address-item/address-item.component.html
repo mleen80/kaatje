@@ -1,16 +1,14 @@
-
-          <div *ngFor="let address of addresses; index as i">
-            <div class="divTable">
-              <div class="headRow">
-                <div class="divCell">{{ address.streetName | titlecase }}
-                  {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}} {{address.houseNumberExtension}},
-                  {{address.postCode}} {{ address.city | titlecase }}</div>
-                <div class="divCell">
-                  EAN stroom: {{ address.eanElectricity }}
-                </div>
-                <div class="divCell">
-                  EAN gas: {{ address.eanGas }} </div>
-              </div>
-            </div>
-          </div>
-
+<div *ngFor="let address of addresses; index as i">
+  <div class="divTable">
+    <div class="headRow">
+      <div class="divCell">{{ address.streetName | titlecase }}
+        {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}} {{address.houseNumberExtension}},
+        {{address.postCode}} {{ address.city | titlecase }}</div>
+      <div class="divCell">
+        EAN stroom: {{ address.eanElectricity }}
+      </div>
+      <div class="divCell">
+        EAN gas: {{ address.eanGas }} </div>
+    </div>
+  </div>
+</div>
