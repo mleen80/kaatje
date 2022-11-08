@@ -7,7 +7,12 @@
     </button>
     <button type="button" class="btn btn-warning">Adres afmelden</button>
     <hr>
-    <app-list-addresses [addresses]="addresses"></app-list-addresses>
+    <app-list-addresses header="Actieve leveringsadressen" [addresses]="addresses | filterAddresses: 'Active'"></app-list-addresses>
+
+    <app-list-addresses header="Toekomstige leveringsadressen" [addresses]="addresses | filterAddresses: 'Future'"></app-list-addresses>
+
+    <app-list-addresses header="Inactieve leveringsadressen" [addresses]="addresses | filterAddresses: 'Past'"></app-list-addresses>
+
 <hr>
     <button type="button" class="btn btn-primary"
     [routerLink]="['']">back</button>

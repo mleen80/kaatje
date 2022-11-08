@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Address } from '../../api/address/address';
 
 @Component({
@@ -12,7 +12,11 @@ export class AddressItemComponent implements OnInit {
   status = ['Active', 'Future', 'Past'];
   panelOpenState = false;
 
+
+
   constructor() { }
+
+
 
   ngOnInit()  {
   }

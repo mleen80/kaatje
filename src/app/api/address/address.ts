@@ -6,8 +6,10 @@ export interface Address {
   city: string;
   eanElectricity: string;
   eanGas: string;
-  status: string;
-  eanEStatus: string;
-  eanGStatus: string;
+  status: ActiveType;
+  eanEStatus: ActiveType;
+  eanGStatus: ActiveType;
   startDate: string;
 }
+
+export type ActiveType = 'Active' | 'Past' | 'Future'

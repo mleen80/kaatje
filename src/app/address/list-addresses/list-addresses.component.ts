@@ -13,6 +13,7 @@ export class ListAddressesComponent implements OnInit {
   @Input() addresses!: Address[];
   status = ['Active', 'Future', 'Past'];
   panelOpenState = false;
+  @Input() header = '';
 
   constructor() { }
 
