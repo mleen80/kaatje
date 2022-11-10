@@ -131,20 +131,6 @@
       "eanGStatus": "Future",
       "startdate": "2022-11-23",
       "id": 7
-    },
-    {
-      "streetName": "poffertjesstraat",
-      "houseNumber": 101,
-      "houseNumberExtension": "Poedersuiker",
-      "postCode": "5035ZC",
-      "city": "Tilburg",
-      "eanElectricity": "1234567890123456789",
-      "eanGas": "12345678901234567890",
-      "status": "Future",
-      "eanEStatus": "Future",
-      "eanGStatus": "Future",
-      "startDate": "2022-11-24",
-      "id": 8
     }
   ]
 }
