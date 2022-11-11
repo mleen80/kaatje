@@ -73,7 +73,7 @@
       "eanElectricity": "123456789987654326",
       "eanGas": "987654321123454789",
       "eanEStatus": "Active",
-      "eanGStatus": "Active",
+      "eanGStatus": "Future",
       "status": "Active"
     },
     {
