@@ -12,6 +12,7 @@ import { ListAddressesComponent } from './address/list-addresses/list-addresses.
 import { AddAddressComponent } from './address/add-address/add-address.component';
 import { AddressItemComponent } from './address/address-item/address-item.component';
 import { FilterAddressesPipe } from './filter-addresses.pipe';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FilterAddressesPipe } from './filter-addresses.pipe';
     ListAddressesComponent,
     AddAddressComponent,
     AddressItemComponent,
-    FilterAddressesPipe
+    FilterAddressesPipe,
+    ModalComponent
   ],
   imports: [
     CoreModule,
