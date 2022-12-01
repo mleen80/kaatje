@@ -1,5 +1,5 @@
-<div class="outer">
-  <div class="inner">
-    <p>modal works!</p>
+<div class="outer" (click)="outsideClicked()">
+  <div class="inner" (click)="insideClicked($event)">
+    <ng-content></ng-content>
   </div>
 </div>

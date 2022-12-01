@@ -1,9 +1,9 @@
-import { Component, OnChanges, Output } from "@angular/core";
-import { Address } from "../api/address/address";
-import { OnInit } from "@angular/core";
-import { AddressService } from "../api/address/address.service";
-import { Observable } from "rxjs/internal/Observable";
-import { Router } from "@angular/router";
+import { Component, OnChanges, Output } from '@angular/core';
+import { Address } from '../api/address/address';
+import { OnInit } from '@angular/core';
+import { AddressService } from '../api/address/address.service';
+import { Observable } from 'rxjs/internal/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leegstand',
@@ -12,27 +12,32 @@ import { Router } from "@angular/router";
 
 })
 
-export class LeegstandComponent implements OnInit{
+export class LeegstandComponent implements OnInit {
 
-  addresses$?: Observable<Address[]>
+  addresses$?: Observable<Address[]>;
+
+  showModal = false;
 
   constructor(
     private addressService: AddressService,
     private router: Router
-    ) {}
-
-
+  ) {}
 
   ngOnInit() {
-     this.addresses$ = this.addressService.getAddresses();
+    this.addresses$ = this.addressService.getAddresses();
 
-    }
+  }
 
-    onAddAddress(){
-      this.router.navigate(['address/:add-address'])
-    }
+  onAddAddress() {
+    this.router.navigate(['address/:add-address']);
+  }
 
-    onBack(){
-      this.router.navigate([''])
-    }
+  onBack() {
+    this.router.navigate(['']);
+  }
+
+  executeModal() {
+    // do some work
+    this.showModal = false;
+  }
 }

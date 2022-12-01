@@ -13,8 +13,8 @@
 .inner {
   background-color: white;
   z-index: 1000;
-  padding: 8px;
-
+  width: 75vw;
+  height: 75vh;
 }
 
 
