@@ -1,12 +1,14 @@
-import { Component  } from "@angular/core";
+import { Component, OnDestroy  } from "@angular/core";
 import { Address } from "../api/address/address";
 import { OnInit } from "@angular/core";
 import { AddressService } from "../api/address/address.service";
 import { Observable } from "rxjs/internal/Observable";
 import { Router } from "@angular/router";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { MatDialog } from "@angular/material/dialog";
 import { ModalComponent } from "../modal/modal.component";
-import { Dialog, DialogRef } from "@angular/cdk/dialog";
+import { ListAddressesComponent } from "../address/list-addresses/list-addresses.component";
+import { FilterAddressesPipe } from "../filter-addresses.pipe";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
   selector: 'app-leegstand',
@@ -15,15 +17,16 @@ import { Dialog, DialogRef } from "@angular/cdk/dialog";
 
 })
 
-export class LeegstandComponent implements OnInit{
+export class LeegstandComponent implements OnInit, OnDestroy{
 
-  addresses$?: Observable<Address[]>
+  addresses$?: Observable<Address[]>;
+  closed$ = new Subject<void>();
 
 
   constructor(
     private addressService: AddressService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
     ) {}
 
 
@@ -42,11 +45,18 @@ export class LeegstandComponent implements OnInit{
     }
 
     openDialog() {
-
-    this.dialog.open(ModalComponent);
-
+      this.addresses$?.pipe(takeUntil(this.closed$)).subscribe(
+        addresses => {
+          const activeAdresses = new FilterAddressesPipe().transform(addresses, 'Active');
+          this.dialog.open(ModalComponent,
+            {data: { addresses: activeAdresses }});
+        }
+      );
     }
 
-
+    ngOnDestroy() {
+      this.closed$.next();
+      this.closed$.complete();
+    }
 
 }

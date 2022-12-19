@@ -36,8 +36,6 @@ export class AddAddressComponent implements OnInit {
 
   onAddExtraAddress(){
     this.extraAddressChecked = true;
-    // console.log(this.extraAddressChecked);
-    // console.log(this.addAddress);
   }
 
   async onSubmit(){
@@ -45,7 +43,6 @@ export class AddAddressComponent implements OnInit {
     console.log(mapped);
     await this.addresService.addAddress(mapped);
     this.toOverview();
-    // this.addresService.getAddresses().subscribe();
 
   }
 

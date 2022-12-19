@@ -1,6 +1,8 @@
 <h3 mat-dialog-title> Adres afmelden</h3>
-    <div mat-dialog-content> YEAAHH IK WERK!!</div>
+    <div mat-dialog-content>
+        <pre>{{data.addresses |  json }}</pre>
+    </div>
     <div mat-dialog-actions>
-      <button mat-button (click)="close()"> Annuleren </button>
+      <button mat-button (click)="close()" style="margin-right: 10px;"> Annuleren </button>
         <button mat-button mat-dialog-close > Afronden </button>
     </div>
