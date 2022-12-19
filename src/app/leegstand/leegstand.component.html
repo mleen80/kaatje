@@ -2,11 +2,10 @@
   <div class="container">
     <h1>Leegstand</h1>
     <hr>
-    <button type="button" class="btn btn-primary" style="margin-right: 5px;" onclick="addAddress()"
-      (click)="onAddAddress()">
+    <button type="button" class="btn btn-primary" style="margin-right: 5px;" (click)="addAddress()">
       Nieuw adres toevoegen
     </button>
-    <button type="button" class="btn btn-warning">Adres afmelden</button>
+    <button type="button" class="btn btn-warning" (click)="openDialog()">Adres afmelden</button>
     <hr>
 
     <app-list-addresses header="Actieve leveringsadressen" [addresses]="addresses | filterAddresses: 'Active'">
