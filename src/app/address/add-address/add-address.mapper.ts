@@ -1,26 +1,28 @@
 import { FormGroup } from '@angular/forms';
-import { AddressPayload } from 'src/app/api/address/address.model';
+import { AddressPayload, Ean } from 'src/app/api/address/address.model';
 
 export function mapToAddressPayload(formGroup: FormGroup): AddressPayload {
+  const formValue = formGroup.value;
+
+  const electrictyEans = (formValue.electricityEans as string[])
+    .filter(ean => ean !== '')
+    .map(code => ({ code, type: 'electricity', status: 'Future' } as Ean));
+
+  const gasEans = (formValue.electricityEans as string[])
+    .filter(ean => ean !== '')
+    .map(code => ({ code, type: 'gas', status: 'Future' } as Ean));
+
   return {
-    streetName: formGroup.controls.straat.value,
-    houseNumber: +formGroup.controls.huisnummer.value,
-    houseNumberExtension: formGroup.controls.toevoeging.value ?? '',
-    postCode: formGroup.controls.postcode.value,
-    city: formGroup.controls.woonplaats.value,
+    streetName: formValue.straat,
+    houseNumber: +formValue.huisnummer,
+    houseNumberExtension: formValue.toevoeging ?? '',
+    postCode: formValue.postcode,
+    city: formValue.woonplaats,
     eans: [
-      {
-        type: 'electricity',
-        code: formGroup.controls.eanstroom.value,
-        status: 'Future'
-      },
-      {
-        type: 'gas',
-        code: formGroup.controls.eangas.value,
-        status: 'Future'
-      }
+      ...electrictyEans,
+      ...gasEans,
     ],
     status: 'Future',
-    startDate: formGroup.controls.startdatum.value,
+    startDate: formValue.startdatum
   };
 }
