@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator:before,.mat-expansion-indicator:focus,  .mat-expansion-indicator:after {
+  color: white;
+}

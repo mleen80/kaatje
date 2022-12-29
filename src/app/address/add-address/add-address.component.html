@@ -40,14 +40,19 @@
     <hr class="hrLine">
 
     <h4>Aansluitgegevens:</h4>
-    <div class="col-6">
-      <label for="eanstroom" class="form-label">EAN stroom</label>
-      <input type="text" id="eanstroom" class="form-control" formControlName="eanstroom">
-      <div *ngIf="!addAddress.get('eanstroom')?.valid && addAddress.get('eanstroom')?.touched">
-        <div *ngIf="addAddress.get('eanstroom')?.hasError('required')">Dit is een verplicht veld!</div>
-        <div *ngIf="addAddress.get('eanstroom')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</div>
-        <div *ngIf="addAddress.get('eanstroom')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</div>
-        </div>
+    <div class="col-6" formControlName="eanstroom">
+      <pre>{{addAddress.controls.eanstroom.value | json}}</pre>
+      <ng-container *ngFor="let ean of addAddress.controls.eanstroom.controls; let i = index">
+        <div [formGroupName]="i">
+          Test
+      </div>
+    </ng-container>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="nextEanE" (change)="onExtraEan()">
+        <label class="form-check-label" for="nextEanE">
+          Voeg nog een EAN stroom toe
+        </label>
+      </div>
     </div>
     <div class="col-6">
       <label for="eangas" class="form-label">EAN gas</label>
@@ -56,6 +61,12 @@
         <div *ngIf="addAddress.get('eangas')?.hasError('required')">Dit is een verplicht veld!</div>
         <div *ngIf="addAddress.get('eangas')?.hasError('pattern')">Een EAN bestaat uit alleen cijfers</div>
         <div *ngIf="addAddress.get('eangas')?.hasError('minlength')">Een EAN heeft minimaal 18 cijfers</div>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="nextEanG">
+          <label class="form-check-label" for="nextEanE">
+            Voeg nog een EAN gas toe
+          </label>
         </div>
     </div>
     <div class="col-6">

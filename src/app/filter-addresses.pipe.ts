@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ActiveType, Address } from './api/address/address';
+import { ActiveType, Address } from './api/address/address.model';
 
 @Pipe({
   name: 'filterAddresses',

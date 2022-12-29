@@ -15,6 +15,9 @@ import { FilterAddressesPipe } from './filter-addresses.pipe';
 import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TerminateAddressComponent } from './address/terminate-address/terminate-address.component';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -26,7 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddAddressComponent,
     AddressItemComponent,
     FilterAddressesPipe,
-    ModalComponent
+    ModalComponent,
+    TerminateAddressComponent
   ],
   imports: [
     CoreModule,
@@ -36,6 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
+    MatExpansionModule,
+    MatCheckboxModule,
     BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],

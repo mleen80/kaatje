@@ -1,24 +1,14 @@
-<div class="accordion" [id]="componentId">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingOne">
-      <button
-        class="accordion-button"
-        type="button"
-        data-bs-toggle="collapse"
-        [attr.data-bs-target]="'#' + componentId + '-collapse-target'"
-        aria-expanded="true"
-        [attr.aria-controls]="componentId + '-collapse-target'"
-      >
-        <h6>{{header}}</h6>
-      </button>
-    </h2>
-    <div [id]="componentId + '-collapse-target'" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-      [attr.data-bs-parent]="'#' + componentId">
-      <div class="accordion-body">
-        <ng-container>
-          <app-address-item [addresses]="addresses"></app-address-item>
-        </ng-container>
-      </div>
-    </div>
-  </div>
-</div>
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title id="headingOne">
+              <h6>{{header}}</h6>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <br>
+          <app-address-item [address]="address" *ngFor="let address of addresses" (selectedEans)="selectAddressEan(address, $event)"></app-address-item>
+        </mat-expansion-panel>
+      </mat-accordion>

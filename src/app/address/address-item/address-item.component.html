@@ -1,34 +1,40 @@
-<ng-container *ngFor="let address of addresses; index as i">
-  <table>
-    <tr>
-      <th colspan="2">
-        <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plug" viewBox="0 0 16 16">
-            <path d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.083 2.083 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.922 1.922 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0zM5 4v2.5A2.5 2.5 0 0 0 7.5 9h1A2.5 2.5 0 0 0 11 6.5V4H5z"/>
+<table>
+  <tr>
+    <th colspan="2">
+      <ng-container *ngFor="let ean of address.eans">
+        <div class="icon" *ngIf="ean.type === 'electricity'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plug"
+            viewBox="0 0 16 16">
+            <path
+              d="M6 0a.5.5 0 0 1 .5.5V3h3V.5a.5.5 0 0 1 1 0V3h1a.5.5 0 0 1 .5.5v3A3.5 3.5 0 0 1 8.5 10c-.002.434-.01.845-.04 1.22-.041.514-.126 1.003-.317 1.424a2.083 2.083 0 0 1-.97 1.028C6.725 13.9 6.169 14 5.5 14c-.998 0-1.61.33-1.974.718A1.922 1.922 0 0 0 3 16H2c0-.616.232-1.367.797-1.968C3.374 13.42 4.261 13 5.5 13c.581 0 .962-.088 1.218-.219.241-.123.4-.3.514-.55.121-.266.193-.621.23-1.09.027-.34.035-.718.037-1.141A3.5 3.5 0 0 1 4 6.5v-3a.5.5 0 0 1 .5-.5h1V.5A.5.5 0 0 1 6 0zM5 4v2.5A2.5 2.5 0 0 0 7.5 9h1A2.5 2.5 0 0 0 11 6.5V4H5z" />
           </svg>
-        </div><div
-          [ngClass]="{'active' : address.eanEStatus === 'Active', 'future' : address.eanEStatus === 'Future', 'past' : address.eanEStatus === 'Past'}">
-          <i class="bi bi-plug"></i></div>
-          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
-            <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z"/>
-          </svg></div><div
-          [ngClass]="{'active' : address.eanGStatus === 'Active', 'future' : address.eanGStatus === 'Future', 'past' : address.eanGStatus === 'Past'}">
-          </div>{{ address.streetName | titlecase }} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}
-        {{address.houseNumberExtension}},
-        {{address.postCode}} {{ address.city | titlecase }}
-      </th>
-    </tr>
-    <tr>
-      <td class="ean">
-       EAN stroom:
-      </td>
-      <td>{{ address.eanElectricity }}</td>
-    </tr>
-    <tr>
-      <td class="ean">
-        EAN gas:
-      </td>
-      <td>{{ address.eanGas }}</td>
-    </tr>
-  </table>
+        </div>
+        <div class="icon" *ngIf="ean.type === 'gas'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-fire"
+            viewBox="0 0 16 16">
+            <path
+              d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
+          </svg>
+        </div>
+        <div
+          [ngClass]="{'active' : ean.status === 'Active', 'future' : ean.status === 'Future', 'past' : ean.status === 'Past'}">
+          <i class="bi bi-plug"></i>
+        </div>
+      </ng-container>
+      {{ address.streetName | titlecase }} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}
+      {{address.houseNumberExtension}},
+      {{address.postCode}} {{ address.city | titlecase }}
+    </th>
+  </tr>
+  <ng-container *ngFor="let ean of address.eans">
+  <tr>
+    <td class="ean" *ngIf="ean.type === 'electricity'">
+      EAN stroom:
+    </td>
+    <td class="ean" *ngIf="ean.type === 'gas'">
+      EAN gas:
+    </td>
+    <td>{{ ean.code }} <button (click)="selectedEans.emit([ean])">Tijdelijk</button></td>
+  </tr>
 </ng-container>
+</table>

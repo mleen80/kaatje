@@ -1,24 +1,33 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Address } from 'src/app/api/address/address';
-import { AddressItemComponent } from 'src/app/address/address-item/address-item.component';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Address, Ean } from 'src/app/api/address/address.model';
 import { uniqueId } from 'lodash';
+import { SelectedEans } from './list-address.model';
 
 @Component({
   selector: 'app-list-addresses',
   templateUrl: './list-addresses.component.html',
   styleUrls: ['./list-addresses.component.css'],
 })
-export class ListAddressesComponent implements OnInit {
+export class ListAddressesComponent {
   componentId = uniqueId('list-address-accordion-');
-  @Input() addresses!: Address[];
+  @Input()
+  addresses!: Address[];
+
+  @Output()
+  selectedEans = new EventEmitter<Map<Address, Ean[]>>();
+
+  selectedAddresses = new Map<Address, Ean[]>();
 
   status = ['Active', 'Future', 'Past'];
 
   panelOpenState = false;
 
-  @Input() header = '';
+  @Input()
+  header = '';
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  selectAddressEan(address: Address, eans: Ean[]){
+    this.selectedAddresses.set(address, eans);
+    this.selectedEans.emit(this.selectedAddresses);
+    console.log('lists', address, eans);
+  }
 }

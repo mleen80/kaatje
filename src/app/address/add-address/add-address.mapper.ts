@@ -1,18 +1,26 @@
 import { FormGroup } from '@angular/forms';
-import { Address } from 'src/app/api/address/address';
+import { AddressPayload } from 'src/app/api/address/address.model';
 
-export function mapToAddress(formGroup: FormGroup): Address {
+export function mapToAddressPayload(formGroup: FormGroup): AddressPayload {
   return {
-  streetName: formGroup.controls.straat.value,
-  houseNumber: +formGroup.controls.huisnummer.value,
-  houseNumberExtension: formGroup.controls.toevoeging.value ?? '',
-  postCode: formGroup.controls.postcode.value,
-  city: formGroup.controls.woonplaats.value,
-  eanElectricity: formGroup.controls.eanstroom.value,
-  eanGas: formGroup.controls.eangas.value,
-  status: 'Future',
-  eanEStatus: 'Future',
-  eanGStatus: 'Future',
-  startDate: formGroup.controls.startdatum.value
-  }
+    streetName: formGroup.controls.straat.value,
+    houseNumber: +formGroup.controls.huisnummer.value,
+    houseNumberExtension: formGroup.controls.toevoeging.value ?? '',
+    postCode: formGroup.controls.postcode.value,
+    city: formGroup.controls.woonplaats.value,
+    eans: [
+      {
+        type: 'electricity',
+        code: formGroup.controls.eanstroom.value,
+        status: 'Future'
+      },
+      {
+        type: 'gas',
+        code: formGroup.controls.eangas.value,
+        status: 'Future'
+      }
+    ],
+    status: 'Future',
+    startDate: formGroup.controls.startdatum.value,
+  };
 }
