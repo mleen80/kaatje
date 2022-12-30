@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TerminateAddressComponent } from './address/terminate-address/terminate-address.component';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormComponent } from './form/form.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     AddressItemComponent,
     FilterAddressesPipe,
     ModalComponent,
-    TerminateAddressComponent
+    TerminateAddressComponent,
+    FormComponent
   ],
   imports: [
     CoreModule,
