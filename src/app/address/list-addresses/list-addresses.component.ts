@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Address, Ean } from 'src/app/api/address/address.model';
 import { uniqueId } from 'lodash';
-import { SelectedEans } from './list-address.model';
 
 @Component({
   selector: 'app-list-addresses',

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { last } from 'lodash';
 import { AddressService } from 'src/app/api/address/address.service';
 import { mapToAddressPayload } from './add-address.mapper';
+import { CustomValidators } from './custom-validators';
 
 @Component({
   selector: 'app-add-address',
@@ -11,52 +13,59 @@ import { mapToAddressPayload } from './add-address.mapper';
 })
 export class AddAddressComponent {
   extraAddressChecked = false;
-  extraEanEChecked = false;
-  extraEanGChecked = false;
 
-  addAddress = this.formBuilder.group({
+  addressForm = this.formBuilder.group({
     straat: ['', Validators.required],
-    huisnummer: ['', [Validators.required, Validators.pattern("^(0|[1-9][0-9]*)$")]],
+    huisnummer: ['', [Validators.required, CustomValidators.numeric]],
     toevoeging: ['', Validators.required],
-    postcode: ['', [Validators.required, Validators.pattern("^([1-9]{1}[0-9]{3}\s?[a-zA-Z]{2})$")]],
+    postcode: ['', [Validators.required, CustomValidators.postalCode]],
     woonplaats: ['', Validators.required],
-    eanstroom: this.formBuilder.array([['', '']]),
-    eangas: ['', [Validators.required, Validators.pattern("^(0|[1-9][0-9]*)$"), Validators.minLength(18)]],
+    electricityEans: this.formBuilder.array([]),
+    gasEans: this.formBuilder.array([]),
     startdatum: ['', Validators.required],
   })
 
   constructor(private router: Router,
               private formBuilder: FormBuilder,
-              private addresService: AddressService) { }
+              private addressService: AddressService) { }
 
-  toOverview(){
+
+  toOverview() {
     this.router.navigate(['leegstand/:leegstand']);
   }
 
-  onAddExtraAddress(){
+  onAddExtraAddress() {
     this.extraAddressChecked = true;
   }
 
-  onExtraEan(){
-    this.extraEanEChecked = true;
-    console.log('ExtraEanEChecked', this.extraEanEChecked);
-
-    const newEanField = document.createElement('input');
-    newEanField.setAttribute("type", "text");
-    newEanField.setAttribute('formControlName', "eanstroom");
-    newEanField.setAttribute("class", "form-control");
-
-    console.log(newEanField);
-    document.body.append(newEanField);
-
+  ngOnInit() {
+    this.updateEanArray(this.addressForm.controls.electricityEans);
+    this.updateEanArray(this.addressForm.controls.gasEans);
   }
 
-  async onSubmit(){
-    const mapped = mapToAddressPayload(this.addAddress);
+  async onSubmit() {
+    const mapped = mapToAddressPayload(this.addressForm);
     console.log(mapped);
-    await this.addresService.addAddress(mapped);
+    await this.addressService.addAddress(mapped);
     this.toOverview();
+  }
 
+  onFormChange() {
+    this.updateEanArray(this.addressForm.controls.electricityEans);
+    this.updateEanArray(this.addressForm.controls.gasEans);
+  }
+
+  private updateEanArray(eans: FormArray<FormControl<unknown>>) {
+    if (last(eans.value) !== '' || eans.value.length === 0) {
+      eans.push(new FormControl(''));
+    }
+    const lastIndex = eans.value.length - 1
+    for (let i = lastIndex; i >= 0; i--) {
+      eans.clearValidators();
+      if (lastIndex === i) continue;
+      if (eans.value[i] === '') eans.removeAt(i);
+      else eans.controls[i].addValidators([Validators.required, CustomValidators.numeric, Validators.minLength(18)]);
+    }
   }
 
 }
