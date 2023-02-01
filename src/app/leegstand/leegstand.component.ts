@@ -38,19 +38,26 @@ export class LeegstandComponent implements OnInit, OnDestroy {
     this.router.navigate(['']);
   }
 
+//waarom mappen we wat al gemapt is?
+//data uit selectedAddresses moet meegegeven worden aan modal
+//data uit SA bestaat uit [{}, []] (K, V)
+//data gemappt doorgeven of niet? data hier uit map halen of in modal?
+//in modal moet de lijst met adressen en de bijbehorende ean
+
+
   openDialog() {
     this.addresses$?.pipe(takeUntil(this.closed$)).subscribe((addresses) => {
       const activeAdresses = new FilterAddressesPipe().transform(
         addresses,
         'Active'
       );
-      this.dialog.open(ModalComponent, { data: { addresses: activeAdresses } });
+      this.dialog.open(ModalComponent, { data: { addresses: this.selectedAddresses } });
     });
   }
 
   selectedEans(addresEanMap: Map<Address, Ean[]>){
-    this.selectedAddresses = new Map([...this.selectedAddresses.entries(), ...addresEanMap.entries()])
-    console.log(this.selectedAddresses);
+    this.selectedAddresses = new Map([...this.selectedAddresses.entries(), ...addresEanMap.entries()]);
+    console.log('leegstand', this.selectedAddresses);
   }
 
   ngOnDestroy() {

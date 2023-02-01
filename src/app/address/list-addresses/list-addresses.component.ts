@@ -20,6 +20,8 @@ export class ListAddressesComponent {
   status = ['Active', 'Future', 'Past'];
 
   panelOpenState = false;
+  @Input()
+  expanded?: boolean;
 
   @Input()
   header = '';

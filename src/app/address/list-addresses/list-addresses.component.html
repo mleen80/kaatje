@@ -1,8 +1,9 @@
 <mat-accordion>
   <mat-expansion-panel hideToggle>
         </mat-expansion-panel>
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                             (closed)="panelOpenState = false">
+        <mat-expansion-panel (opened)="panelOpenState"
+                             (closed)="panelOpenState"
+                             [expanded]="expanded">
           <mat-expansion-panel-header>
             <mat-panel-title id="headingOne">
               <h6>{{header}}</h6>

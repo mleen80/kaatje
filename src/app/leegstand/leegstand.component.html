@@ -8,15 +8,15 @@
     <button type="button" class="btn btn-warning" (click)="openDialog()">Adres afmelden</button>
     <hr>
 
-    <app-list-addresses header="Actieve leveringsadressen" [addresses]="addresses | filterAddresses: 'Active'" (selectedEans)="selectedEans($event)">
+    <app-list-addresses header="Actieve leveringsadressen" [expanded]=true [addresses]="addresses | filterAddresses: 'Active'" (selectedEans)="selectedEans($event)">
     </app-list-addresses>
     <br>
 
-    <app-list-addresses header="Toekomstige leveringsadressen" [addresses]="addresses | filterAddresses: 'Future'">
+    <app-list-addresses header="Toekomstige leveringsadressen" [expanded]=false [addresses]="addresses | filterAddresses: 'Future'">
     </app-list-addresses>
     <br>
 
-    <app-list-addresses header="Inactieve leveringsadressen" [addresses]="addresses | filterAddresses: 'Past'">
+    <app-list-addresses header="Inactieve leveringsadressen" [expanded]=false [addresses]="addresses | filterAddresses: 'Past'">
     </app-list-addresses>
 
     <hr>
