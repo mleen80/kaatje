@@ -13,8 +13,9 @@ export class ModalComponent  {
 
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {addresses: [Address, Ean[]]}
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public addresses: Address[]
+  ) {
+  }
 
 
 close(){

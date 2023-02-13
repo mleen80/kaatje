@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Address, Ean } from 'src/app/api/address/address.model';
-import { uniqueId } from 'lodash';
+import { uniqueId, cloneDeep } from 'lodash';
 
 @Component({
   selector: 'app-list-addresses',
@@ -13,9 +13,7 @@ export class ListAddressesComponent {
   addresses!: Address[];
 
   @Output()
-  selectedEans = new EventEmitter<Map<Address, Ean[]>>();
-
-  selectedAddresses = new Map<Address, Ean[]>();
+  selectedEans = new EventEmitter<Address[]>();
 
   status = ['Active', 'Future', 'Past'];
 
@@ -26,9 +24,13 @@ export class ListAddressesComponent {
   @Input()
   header = '';
 
-  selectAddressEan(address: Address, eans: Ean[]){
-    this.selectedAddresses.set(address, eans);
-    this.selectedEans.emit(this.selectedAddresses);
-    console.log('lists', address, eans);
+  selectAddressEan(selectedEanCodes: string[]){
+    let selectedAddresses: Address[] = cloneDeep(this.addresses)
+    selectedAddresses.forEach(address => {
+      address.eans = address.eans.filter(ean => selectedEanCodes.includes(ean.code))
+    });
+    selectedAddresses = selectedAddresses.filter(address => address.eans.length);
+    console.log('selectAddressEan', selectedAddresses);
+    this.selectedEans.emit(selectedAddresses);
   }
 }

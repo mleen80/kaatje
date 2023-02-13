@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { FilterAddressesPipe } from '../filter-addresses.pipe';
 import { Subject, takeUntil } from 'rxjs';
+import { DialogConfig } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-leegstand',
@@ -17,7 +18,7 @@ import { Subject, takeUntil } from 'rxjs';
 export class LeegstandComponent implements OnInit, OnDestroy {
   addresses$?: Observable<Address[]>;
   closed$ = new Subject<void>();
-  selectedAddresses = new Map<Address, Ean[]>();
+  selectedAddresses: Address[] = [];
 
 
   constructor(
@@ -38,12 +39,6 @@ export class LeegstandComponent implements OnInit, OnDestroy {
     this.router.navigate(['']);
   }
 
-//waarom mappen we wat al gemapt is?
-//data uit selectedAddresses moet meegegeven worden aan modal
-//data uit SA bestaat uit [{}, []] (K, V)
-//data gemappt doorgeven of niet? data hier uit map halen of in modal?
-//in modal moet de lijst met adressen en de bijbehorende ean
-
 
   openDialog() {
     this.addresses$?.pipe(takeUntil(this.closed$)).subscribe((addresses) => {
@@ -51,13 +46,12 @@ export class LeegstandComponent implements OnInit, OnDestroy {
         addresses,
         'Active'
       );
-      this.dialog.open(ModalComponent, { data: { addresses: this.selectedAddresses } });
+      this.dialog.open(ModalComponent, {
+        minHeight: '800px',
+        minWidth: '1500px',
+        data: this.selectedAddresses
     });
-  }
-
-  selectedEans(addresEanMap: Map<Address, Ean[]>){
-    this.selectedAddresses = new Map([...this.selectedAddresses.entries(), ...addresEanMap.entries()]);
-    console.log('leegstand', this.selectedAddresses);
+    });
   }
 
   ngOnDestroy() {

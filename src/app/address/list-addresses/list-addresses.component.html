@@ -10,6 +10,6 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <br>
-          <app-address-item [address]="address" *ngFor="let address of addresses" (selectedEans)="selectAddressEan(address, $event)"></app-address-item>
+          <app-address-item [address]="address" *ngFor="let address of addresses" (selectedEanCodes)="selectAddressEan($event)"></app-address-item>
         </mat-expansion-panel>
       </mat-accordion>

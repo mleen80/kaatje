@@ -198,6 +198,28 @@
       "status": "Future",
       "startdate": "2022-11-23",
       "id": 7
+    },
+    {
+      "streetName": "scharwoudestraat",
+      "houseNumber": 66,
+      "houseNumberExtension": "Stroop",
+      "postCode": "6731PS",
+      "city": "Zoetigheid",
+      "eans": [
+        {
+          "code": "1234567890098765432",
+          "type": "electricity",
+          "status": "Future"
+        },
+        {
+          "code": "1234567890098765432",
+          "type": "gas",
+          "status": "Future"
+        }
+      ],
+      "status": "Future",
+      "startDate": "2023-02-06",
+      "id": 8
     }
   ]
 }

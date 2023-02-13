@@ -28,13 +28,13 @@
   </tr>
   <ng-container *ngFor="let ean of address.eans">
   <tr>
-    <td class="ean" *ngIf="ean.type === 'electricity'">
+    <td class="ean" *ngIf="ean.type === 'electricity'"><mat-checkbox *ngIf="checkbox === true" (click)="selectedEanCodes.emit([ean.code])"></mat-checkbox>
       EAN stroom:
     </td>
-    <td class="ean" *ngIf="ean.type === 'gas'">
+    <td class="ean" *ngIf="ean.type === 'gas'"><mat-checkbox *ngIf="checkbox === true" (click)="selectedEanCodes.emit([ean.code])"></mat-checkbox>
       EAN gas:
     </td>
-    <td>{{ ean.code }} <button (click)="selectedEans.emit([ean])">Tijdelijk</button></td>
+    <td>{{ ean.code }}</td>
   </tr>
 </ng-container>
 </table>

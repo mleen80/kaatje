@@ -11,8 +11,11 @@ import { Address, Ean } from '../../api/address/address.model';
 export class AddressItemComponent  {
   @Input()
   address!: Address;
+  @Input()
+  checkbox? = true;
+
   @Output()
-  selectedEans = new EventEmitter<Ean[]>();
+  selectedEanCodes = new EventEmitter<string[]>();
 
   status = ['Active', 'Future', 'Past'];
   panelOpenState = false;

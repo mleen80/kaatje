@@ -1,15 +1,8 @@
 <h3 mat-dialog-title> Adres afmelden</h3>
-    <!-- <div mat-dialog-content *ngFor="let address of data.addresses; index as i">
-        {{ address.streetName | titlecase }} {{address.houseNumber}}{{address.houseNumberExtension? " " : ""}}
-        {{address.houseNumberExtension}},
-        {{address.postCode}} {{ address.city | titlecase }} -->
-        <div mat-dialog-content *ngFor="let entries of data.addresses | keyvalue">
-         {{entries.key | json}}
-         <br>
-         <br>
-         {{entries.value | json}}
-    </div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="close()" style="margin-right: 10px;"> Annuleren </button>
-        <button mat-button mat-dialog-close > Afronden </button>
-    </div>
+<div mat-dialog-content>
+<app-address-item *ngFor="let address of addresses" [address]="address" [checkbox]="false"></app-address-item>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()" style="margin-right: 10px;"> Annuleren </button>
+  <button mat-button mat-dialog-close> Afronden </button>
+</div>

@@ -5,10 +5,10 @@
     <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="addAddress()">
       Nieuw adres toevoegen
     </button>
-    <button type="button" class="btn btn-warning" (click)="openDialog()">Adres afmelden</button>
+    <button type="button" class="btn btn-warning" (click)="openDialog()" [disabled]="selectedAddresses.length === 0">Adres afmelden</button>
     <hr>
 
-    <app-list-addresses header="Actieve leveringsadressen" [expanded]=true [addresses]="addresses | filterAddresses: 'Active'" (selectedEans)="selectedEans($event)">
+    <app-list-addresses header="Actieve leveringsadressen" [expanded]=true [addresses]="addresses | filterAddresses: 'Active'" (selectedEans)="selectedAddresses = $event">
     </app-list-addresses>
     <br>
 

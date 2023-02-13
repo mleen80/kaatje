@@ -1,0 +1,32 @@
+.active {
+  height: 10px;
+  width: 10px;
+  background-color: green;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.future {
+  height: 10px;
+  width: 10px;
+  background-color: orange;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.past {
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.icon{
+  display: inline-block;
+  margin-right: 5px;
+}
+
