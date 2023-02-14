@@ -16,8 +16,6 @@ export class ModalComponent  {
     @Inject(MAT_DIALOG_DATA) public addresses: Address[]
   ) {
   }
-
-
 close(){
  this.dialogRef.close();
   }

@@ -1,6 +1,6 @@
 <h3 mat-dialog-title> Adres afmelden</h3>
 <div mat-dialog-content>
-<app-address-item *ngFor="let address of addresses" [address]="address" [checkbox]="false"></app-address-item>
+<app-address-item *ngFor="let address of addresses" [address]="address" [useCheckbox]="false"></app-address-item>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="close()" style="margin-right: 10px;"> Annuleren </button>
