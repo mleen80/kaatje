@@ -32,10 +32,9 @@
 <!--              (click)="selectedEanCodes.emit([ean.code])">-->
 <!--        Tijdelijk-->
 <!--      </button>-->
-
-            <td id="checkbox"><mat-checkbox *ngIf="useCheckbox">
-            </mat-checkbox></td>
-
+      <td>
+        <mat-checkbox *ngIf="useCheckbox" [checked]="selectedEanCodes.includes(ean.code)" (change)="toggleEanCode(ean.code)"></mat-checkbox>
+      </td>
       <td class="ean" *ngIf="ean.type === 'electricity'">
         EAN stroom:
       </td>

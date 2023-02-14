@@ -12,6 +12,8 @@ export class ListAddressesComponent {
   @Input()
   addresses!: Address[];
 
+  private selected: Record<string, boolean> = {}
+
   @Output()
   selectedEans = new EventEmitter<Address[]>();
 
@@ -24,7 +26,9 @@ export class ListAddressesComponent {
   @Input()
   header = '';
 
-  selectAddressEan(selectedEanCodes: string[]){
+  addEanCodes(addedEanCodes: Record<string, boolean>){
+    this.selected = {...this.selected, ...addedEanCodes}
+    const selectedEanCodes = Object.entries(this.selected).filter(([_, selected]) => selected).map(([eanCode]) => eanCode);
     let selectedAddresses: Address[] = cloneDeep(this.addresses)
     selectedAddresses.forEach(address => {
       address.eans = address.eans.filter(ean => selectedEanCodes.includes(ean.code))
